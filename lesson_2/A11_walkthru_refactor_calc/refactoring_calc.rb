@@ -8,14 +8,14 @@ end
 
 def operator_to_msg(op)
   case op
-    when '1'
-      'Adding'
-    when '2'
-      'Subtracting'
-    when '3'
-      'Multiplying'
-    when '4'
-      'Dividing'
+  when '1'
+    'Adding'
+  when '2'
+    'Subtracting'
+  when '3'
+    'Multiplying'
+  when '4'
+    'Dividing'
   end
 end
 
@@ -29,17 +29,16 @@ loop do # Input name loop
     prompt("Please input a valid name.")
   else
     break
-  end 
+  end
 end
 
 prompt("Hello, #{name}")
 
 loop do #  main loop
-  
-  number1 ='' # Input first number loop
+  number1 = '' # Input first number loop
   loop do
     prompt("What is the first number?")
-    number1 = Kernel.gets().chomp() 
+    number1 = Kernel.gets().chomp()
     break if valid_number?(number1)
     prompt("Not a valid number...Please input a valid number.")
   end
@@ -72,23 +71,22 @@ loop do #  main loop
   prompt("#{operator_to_msg(operation)} the two numbers...")
 
   result = case operation
-            when '1'
-              number1.to_i + number2.to_i
-            when '2'
-              number1.to_i - number2.to_i
-            when '3'
-              number1.to_i * number2.to_i
-            when '4'
-              number1.to_f / number2.to_f
-  end
-   
+           when '1'
+             number1.to_i + number2.to_i
+           when '2'
+             number1.to_i - number2.to_i
+           when '3'
+             number1.to_i * number2.to_i
+           when '4'
+             number1.to_f / number2.to_f
+           end
+
   prompt("The result is #{result}")
 
   prompt("Do you want to do another calculation?(Y for yes)")
   answer = gets().chomp()
 
   break unless answer.downcase.start_with?("y")
-
-end 
+end
 
 prompt("Thank you for using the calculator. GoodBye!")
