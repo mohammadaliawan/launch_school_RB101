@@ -1,6 +1,6 @@
 en:
   welcome: "Welcome to Calculator! Enter your first name:"
-  valid_name: "Please enter a valid first name.(No symbols, numbers or spaces)"
+  invalid_name: "Please enter a valid first name.(No symbols, numbers or spaces)"
   number1: "Please enter the first number"
   number2: "Please enter the second number"
   invalid_number1: "Please input a valid number.(Only integers or floats are allowed!"
@@ -11,7 +11,7 @@ en:
   goodbye: "Thank you for using the Calculator. Goodbye"
 es:
   welcome: "¡Bienvenido a la calculadora! Introduzca su nombre:"
-  valid_name: "Asegúrate de ingresar un nombre válido."
+  invalid_name: "Asegúrate de ingresar un nombre válido."
   number1: "¿Cuál es el primer número?"
   number2: "¿Cuál es el segundo número?"
   invalid_number1: "No es un número válido ... Ingrese un número entero válido o un flotador"
