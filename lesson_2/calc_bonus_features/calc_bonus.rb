@@ -2,24 +2,24 @@ require 'yaml'
 MESSAGES = YAML.load_file('calc_messages.yml')
 
 loop do
-    Kernel.puts(">> For Espaniol type 'es', For English type 'en'")
-    LANGUAGE = Kernel.gets().chomp()
-    break if LANGUAGE == 'en' || LANGUAGE == 'es'
-    Kernel.puts(">> Invalid answer! Please enter 'es' for spanish or 'en' for English")
+  Kernel.puts(">> For Espaniol type 'es', For English type 'en'")
+  LANGUAGE = Kernel.gets().chomp()
+  break if LANGUAGE == 'en' || LANGUAGE == 'es'
+  Kernel.puts(">> Invalid answer! enter 'es' for spanish or 'en' for English")
 end
 
 def valid_name?(name)
-  unless (/\d/ =~ name) || (name.empty?) || (/\W/ =~ name)
-    return true
+  unless /\d/ =~ name || name.empty? || /\W/ =~ name
+    true
   end
 end
 
-def valid_number?(number, operation)
-  case operation 
+def valid_number?(num, operation)
+  case operation
   when nil, "1", "2", "3"
-    number.to_i.to_s == number || number.to_f.to_s ==  number
+    num.to_i.to_s == num || num.to_f.to_s == num
   when "4"
-    (number.to_i.to_s == number || number.to_f.to_s ==  number) && (number.to_f != 0.0)
+    (num.to_i.to_s == num || num.to_f.to_s == num) && (num.to_f != 0.0)
   end
 end
 
@@ -35,22 +35,22 @@ def messages(message, lang = LANGUAGE)
   MESSAGES[lang][message]
 end
 
-def get_number(num, operation = nil)
+def retrieve_number(num, operation = nil)
   loop do
     prompt(messages('number1')) if num == 1
     prompt(messages('number2')) if num == 2
     number = gets().chomp()
     return number if valid_number?(number, operation)
     if num == 1 || (num == 2 && %w(1 2 3).include?(operation))
-      prompt(messages('invalid_number1')) 
+      prompt(messages('invalid_number1'))
     else
       prompt(messages('invalid_number2'))
     end
   end
 end
 
-def get_operation
-  operation_msg =<<~MSG
+def retrieve_operation
+  operation_msg = <<~MSG
   Please enter the operation you want to perform
     1) Add
     2) Subtract
@@ -94,7 +94,7 @@ def operation_to_sym(operation)
   sym
 end
 
-def get_answer
+def retrieve_answer
   prompt(messages('again'))
   answer = Kernel.gets().chomp().downcase()
   until %w(y yes n no).include?(answer)
@@ -111,23 +111,22 @@ end
 name = greet()
 Kernel.puts("Hello, #{name}")
 
-#Main Loop Starts Here
+# Main Loop Starts Here
 loop do
-  number1 = get_number(1)
+  number1 = retrieve_number(1)
 
-  operation = get_operation()
+  operation = retrieve_operation()
 
-  number2 = get_number(2, operation)
+  number2 = retrieve_number(2, operation)
 
   result = find_result(number1, number2, operation)
 
   display_result(number1, number2, operation, result)
 
-  again_answer = get_answer
+  again_answer = retrieve_answer
 
   break if %w(n no).include?(again_answer)
   system('clear')
 end
 
 prompt(messages('goodbye') + " #{name}")
-
