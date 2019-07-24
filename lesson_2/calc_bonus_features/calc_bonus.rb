@@ -1,16 +1,41 @@
 require 'yaml'
 MESSAGES = YAML.load_file('calc_messages.yml')
 
-loop do
-  Kernel.puts(">> For Espaniol type 'es', For English type 'en'")
-  LANGUAGE = Kernel.gets().chomp()
-  break if LANGUAGE == 'en' || LANGUAGE == 'es'
-  Kernel.puts(">> Invalid answer! enter 'es' for spanish or 'en' for English")
+def valid_lang?(lang)
+  lang == 'es' || lang == 'en'
 end
 
-def valid_name?(name)
-  unless /\d/ =~ name || name.empty? || /\W/ =~ name
-    true
+def retrieve_language
+  loop do
+    prompt(MESSAGES['language'])
+    language = Kernel.gets().chomp().downcase()
+    return language if valid_lang?(language)
+    prompt(MESSAGES['invalid_lang'])
+  end
+end
+#Checked uptil here
+
+
+
+def prompt(str)
+  Kernel.puts(">> #{str}")
+end
+
+def messages(message, lang = LANGUAGE)
+  MESSAGES[lang][message]
+end
+
+def display_number_prompt(num)
+  prompt(messages('number1')) if num == 1
+  prompt(messages('number2')) if num == 2
+end
+
+def display_invalid_number(operation)
+  case operation
+  when nil, "1", "2", "3"
+    prompt(messages('invalid_number1'))
+  else
+    prompt(messages('invalid_number2'))
   end
 end
 
@@ -23,30 +48,17 @@ def valid_number?(num, operation)
   end
 end
 
-def valid_operator?(operator)
-  return true if %w(1 2 3 4).include?(operator)
-end
-
-def prompt(str)
-  Kernel.puts(">> #{str}")
-end
-
-def messages(message, lang = LANGUAGE)
-  MESSAGES[lang][message]
-end
-
 def retrieve_number(num, operation = nil)
   loop do
-    prompt(messages('number1')) if num == 1
-    prompt(messages('number2')) if num == 2
-    number = gets().chomp()
-    return number if valid_number?(number, operation)
-    if num == 1 || (num == 2 && %w(1 2 3).include?(operation))
-      prompt(messages('invalid_number1'))
-    else
-      prompt(messages('invalid_number2'))
-    end
+    display_number_prompt(num)
+    input_number = Kernel.gets().chomp()
+    return input_number if valid_number?(input_number, operation)
+    display_invalid_number(operation)
   end
+end
+
+def valid_operator?(operator)
+  %w(1 2 3 4).include?(operator)
 end
 
 def retrieve_operation
@@ -75,11 +87,23 @@ def find_result(num1, num2, operation)
   result
 end
 
-def greet
-  prompt(messages('welcome'))
+def display_greet(name)
+  prompt(messages('welcome') + name)
+end
+
+def invalid_name?(name)
+  if name.empty? || /\d/ =~ name || /\W/ =~ name
+    true
+  else
+    false
+  end
+end
+
+def retrieve_username
+  prompt(messages('first_name'))
   loop do
     name = Kernel.gets().chomp()
-    return name if valid_name?(name)
+    return name unless invalid_name?(name)
     prompt(messages('invalid_name'))
   end
 end
@@ -94,22 +118,32 @@ def operation_to_sym(operation)
   sym
 end
 
+def valid_answer?(ans)
+  %w(y yes n no).include?(ans)
+end
+
 def retrieve_answer
   prompt(messages('again'))
-  answer = Kernel.gets().chomp().downcase()
-  until %w(y yes n no).include?(answer)
+  loop do
+    answer = Kernel.gets().chomp().downcase()
+    return answer if valid_answer?(answer)
     prompt(messages('invalid_answer'))
-    answer = Kernel.gets().chomp()
   end
-  answer
 end
 
 def display_result(number1, number2, operation, result)
   prompt("#{number1} #{operation_to_sym(operation)} #{number2} = #{result}")
 end
 
-name = greet()
-Kernel.puts("Hello, #{name}")
+def new_calculation?(ans)
+  %w(y yes).include?(ans)
+end
+
+LANGUAGE = retrieve_language()
+
+name = retrieve_username()
+
+display_greet(name)
 
 # Main Loop Starts Here
 loop do
@@ -125,7 +159,7 @@ loop do
 
   again_answer = retrieve_answer
 
-  break if %w(n no).include?(again_answer)
+  break unless new_calculation?(again_answer)
   system('clear')
 end
 
