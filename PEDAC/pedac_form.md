@@ -2,9 +2,9 @@
 
 ## Understanding the Problem
 
-### Make the Inputs, Outputs, Process Explicit
+### Make the Inputs, Outputs & Process Explicit
 
-#### Break Down 
+#### Break Down (Inputs, Outputs,and Process)
 
 - Break it down into pieces. 
 - Make all the requirements and rules regarding the input/Output/ Process explicit.
