@@ -11,7 +11,7 @@ number1 = Kernel.gets().chomp()
 Kernel.puts("What is the second number?")
 number2 = Kernel.gets().chomp()
 
-Kernel.puts("What operation do you want to perform? 1) add, 2) subtract, 3) multiply, 4) divide")
+Kernel.puts("What operation do you want to perform?1) add, 2) subtract, 3) multiply, 4) divide")
 operator = Kernel.gets().chomp()
 
 result = if operator == '1'
