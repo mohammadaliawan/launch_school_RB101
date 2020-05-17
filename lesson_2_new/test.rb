@@ -12,3 +12,5 @@ end
 
 decorate_greeting("John")
 decorate_greeting(1)
+
+decorate_greeting -> greet -> space_out_letters ->
