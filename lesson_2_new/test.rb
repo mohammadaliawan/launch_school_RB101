@@ -1,16 +1,10 @@
-def space_out_letters(person)
-  return person.split("").join(" ")
+def method_1
+  puts "Hello World"
+  method_2
 end
 
-def greet(person)
-  return "H e l l o, " + space_out_letters(person)
+def method_2
+  puts "Bye World" 2
 end
 
-def decorate_greeting(person)
-  puts "" + greet(person) + ""
-end
-
-decorate_greeting("John")
-decorate_greeting(1)
-
-decorate_greeting -> greet -> space_out_letters ->
+method_1
