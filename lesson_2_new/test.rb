@@ -1,14 +1,14 @@
-require "pry"
-
-def a_method(num1, num2, num3)
-  binding.pry
-  num1 + num2 + num3
+def space_out_letters(person)
+  return person.split("").join(" ")
 end
 
-number1 = 1
+def greet(person)
+  return "H e l l o, " + space_out_letters(person)
+end
 
-number2 = 2
+def decorate_greeting(person)
+  puts "" + greet(person) + ""
+end
 
-number3 = 3
-
-p a_method(number1, number2, number3)
+decorate_greeting("John")
+decorate_greeting(1)

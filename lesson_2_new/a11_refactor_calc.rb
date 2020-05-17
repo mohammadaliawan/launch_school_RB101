@@ -1,35 +1,27 @@
-# Refactoring Calculator
-# use a prompt method for formating prompts to the user
-# use case for performing the operation
-# validate number1 and number2- valid_nummber? method
-# validate operator- valid_operator? method 
-# shorten the operator prompt msg with heredoc
-# tell the user "Adding the two number" etc with operator to msg method
-# Ask the user to preform again? if yes start from the beginning
-# Ask for name and greet before main loop, validate name with name.empty?
-
-def prompt(message) # method for formatting the prompt and output it 
+def prompt(message) # method for formatting the prompt and output it
   Kernel.puts("=> #{message}")
 end
 
-def valid_number?(number_str) # method for validating number 
+def valid_number?(number_str) # method for validating number
   number_str.to_i() != 0
 end
 
 def valid_operator?(op) # method for validating operator
-  ["1","2","3","4"].include?(op)
+  %w(1 2 3 4).include?(op)
 end
 
 def performing_op_msg(op)
   case op
-  when '1' then "Adding the two numbers"
-  when '2' then "Subtracing the two numbers"
-  when '3' then "Multiplying the two numbers"
-  when '4' then "Dividing the two numbers"
+  when '1' then op_msg = "Adding the two numbers"
+  when '2' then op_msg = "Subtracing the two numbers"
+  when '3' then op_msg = "Multiplying the two numbers"
+  when '4' then op_msg = "Dividing the two numbers"
   end
+
+  return op_msg
 end
 
-def invalid_name?(user_name)# return true if name is invalid
+def invalid_name?(user_name) # return true if name is invalid
   user_name.empty?()
 end
 
@@ -49,16 +41,16 @@ end
 prompt("Welcome to the Calculator! Enter your name:") # greeting
 
 user_name = ""
-loop do
+loop do # Get user name
   user_name = Kernel.gets().chomp()
   break unless invalid_name?(user_name)
-  prompt("Please enter a valid name") #Get user name
+  prompt("Please enter a valid name")
 end
 
 prompt("Hi, #{user_name}!")
 
-loop do #main loop
-  number1 = "" 
+loop do # main loop
+  number1 = ""
   loop do
     prompt("What is the first number?")
     number1 = Kernel.gets().chomp()
@@ -111,7 +103,7 @@ loop do #main loop
 
   prompt("Do you want to perform another calculation?(y for yes)")
   answer = Kernel.gets().chomp()
-  break unless answer.downcase().start_with?("y") # break exec if user enters anything that doesnot start with "y"
+  break unless answer.downcase().start_with?("y")
   system('clear')
 end
 
