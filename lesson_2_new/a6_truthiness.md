@@ -1,6 +1,6 @@
 # Truthiness
 
-Ruby Considers everything to te truthy other than false and nil. 
+Ruby Considers everything to be truthy other than false and nil. 
 Truthy means that it is considered true in an if conditional or with logical operators.
 
 The ability to express "true" and "false" helps us build conditional logic and understand the state of an object or expression.
@@ -16,7 +16,7 @@ A boolean is an object whose only purpose is to convery whether it is true or fa
 An if statment has two parts. A test expression and a then expression. If the test part evaluates to true then the then expression is evaluated. If it evaluates to false then the then part is not evaluated.
 Instead the else expression is evaluated.
 
-## Whatever expression you are evaluating in the test part of the if statement, it should evaluate to a boolean object i.e. true or false.
+**Whatever expression you are evaluating in the test part of the if statement, it should evaluate to a boolean object i.e. true or false.**
 
 ## When using method calls as a conditional expression, you will generally want the method to return a boolean object rather than relying on the truthiness or falsyness of non-boolean return value.
 

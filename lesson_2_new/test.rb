@@ -1,10 +1,10 @@
-def method_1
-  puts "Hello World"
-  method_2
+def method
+  x = 1
+  loop do
+    puts x
+    x += 1
+    return "Hello" if x == 5
+  end
 end
 
-def method_2
-  puts "Bye World" 2
-end
-
-method_1
+p method

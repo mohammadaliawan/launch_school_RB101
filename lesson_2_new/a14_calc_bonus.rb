@@ -1,5 +1,15 @@
 # a14_calc_bonus.rb
 require "pry"
+require 'yaml'
+
+LANGUAGE = 'en'
+
+MESSAGES = YAML.load_file('calculator_messages.yml')
+
+def messages(key)
+  binding.pry
+  MESSAGES[LANGUAGE][key]
+end
 
 def prompt(message) # method for formatting the prompt and output it
   Kernel.puts("=> #{message}")
@@ -15,10 +25,10 @@ end
 
 def performing_op_msg(op)
   case op
-  when '1' then op_msg = "Adding the two numbers"
-  when '2' then op_msg = "Subtracing the two numbers"
-  when '3' then op_msg = "Multiplying the two numbers"
-  when '4' then op_msg = "Dividing the two numbers"
+  when '1' then op_msg = messages("add")
+  when '2' then op_msg = messages("subtract")
+  when '3' then op_msg = messages("multiply")
+  when '4' then op_msg = messages("divide")
   end
 
   return op_msg
@@ -45,20 +55,20 @@ def retrieve_name # Get user name
   loop do
     user_name = Kernel.gets().chomp()
     return user_name unless invalid_name?(user_name)
-    prompt("Please enter a valid name!")
+    prompt(messages("invalid_name"))
   end
 end
 
 def retrieve_number(n)
   loop do
-    prompt("What is the first number?") if n == 1
-    prompt("What is the second number?") if n == 2
+    prompt(messages("number_1")) if n == 1
+    prompt(messages("number_2")) if n == 2
     number = Kernel.gets().chomp()
 
     if valid_number?(number)
       return number
     else
-      prompt("That is not a valid number. Please input a valid number!")
+      prompt(messages("invalid_number"))
     end
   end
 end
@@ -80,7 +90,7 @@ def retrieve_op
     if valid_operator?(operator)
       return operator
     else
-      prompt("Please input 1,2,3 or 4.")
+      prompt(messages("invalid_operator"))
     end
   end
 end
@@ -90,19 +100,19 @@ def display_result(result)
 end
 
 def display_greeting
-  prompt("Welcome to the Calculator! Enter your name:")
+  prompt(messages("welcome"))
 end
 
 def display_op_msg(operator)
   prompt(performing_op_msg(operator))
 end
 
-def retrieve_play_again
+def perform_another_calc
   loop do
-    prompt("Do you want to perform another calculation?(y/yes, n/no)")
+    prompt(messages("another_calc"))
     answer = Kernel.gets().chomp().downcase()
     return answer if %w(y yes n no).include?(answer)
-    prompt("Please input y/yes or n/no only!")
+    prompt(messages("invalid_ans"))
   end
 end
 
@@ -128,11 +138,10 @@ loop do # main loop
 
   display_result(result)
 
-  answer = retrieve_play_again()
+  answer = perform_another_calc()
 
   break unless play_again?(answer)
-
   system('clear')
 end
 
-prompt("Goodbye!")
+prompt(messages("goodbye"))

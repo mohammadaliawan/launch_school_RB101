@@ -10,7 +10,7 @@ If the key to programming is debugging then the key to debugging is a patient an
 
 Programming is dealing with a constant stream of broken things and learning to deal with those ill feelings of frustration and then transition to a systematic search for a solution.
 
-## Reading Error Messages:
+## Reading Error Messages and Stack Trace:
 
 An error message is called a stack trace and is critical is helping you figure out where to start your debugging.
 
@@ -50,7 +50,7 @@ Programmers need a deterministic way to consistently reproduce the problem, and 
 
 Reproducing the exact error will often end up being more than half the battle in many tricky situations.
 
-2. Determine the boundaries of the problem.
+2. Determine the boundaries or scope of the problem or error
 
 When you can consistently reproduce the problem, its time to tweak the data that caused the problem.
 
