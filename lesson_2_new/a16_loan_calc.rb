@@ -1,5 +1,4 @@
 require 'yaml'
-require 'pry'
 
 MESSAGES = YAML.load_file('loan_calc_msgs.yml')
 
@@ -8,20 +7,7 @@ def prompt(str)
 end
 
 def invalid_name?(user_name)
-  user_name.empty?()
-end
-
-def retrieve_name
-  prompt(MESSAGES["user_name"])
-  loop do
-    user_name = Kernel.gets().chomp()
-    return user_name unless invalid_name?(user_name)
-    prompt(MESSAGES["invalid_name"])
-  end
-end
-
-def display_greeting(user_name)
-  prompt("Hi, #{user_name}")
+  user_name.empty?() || /^ +$/.match(user_name)
 end
 
 def valid_integer?(number_str)
@@ -40,39 +26,45 @@ def valid_loan_amount?(principal_loan_amount)
   valid_number?(principal_loan_amount) && (principal_loan_amount.to_f() > 0)
 end
 
-def retrieve_loan_amount
-  prompt(MESSAGES["loan_amount"])
-  loop do
-    principal_loan_amount = Kernel.gets().chomp()
-    return (principal_loan_amount.to_f) if valid_loan_amount?(principal_loan_amount)
-    prompt(MESSAGES["invalid_loan_amount"])
-  end
-end
-
 def valid_apr?(annual_percent_rate)
-  valid_number?(annual_percent_rate) && (annual_percent_rate.to_f() > 0)
-end
-
-def retrieve_apr
-  prompt(MESSAGES["annual_percent_rate"])
-  loop do
-    annual_percent_rate = Kernel.gets().chomp()
-    return ((annual_percent_rate.to_f()) / 100) if valid_apr?(annual_percent_rate)
-    prompt(MESSAGES["invalid_apr"])
-  end
+  valid_number?(annual_percent_rate) && (annual_percent_rate.to_f().between?(0.1, 15))
 end
 
 def valid_loan_duration?(loan_duration_years)
-  valid_number?(loan_duration_years) && (loan_duration_years.to_f() > 0)
+  valid_integer?(loan_duration_years) && (loan_duration_years.to_i() > 0)
 end
 
-def retrieve_loan_duration_years
-  prompt(MESSAGES["loan_duration_years"])
+def valid_input?(input, input_type)
+  case input_type
+  when "principal_loan_amount"
+    valid_loan_amount?(input)
+  when "apr"
+    valid_apr?(input)
+  when "loan_duration_years"
+    valid_loan_duration?(input)
+  end 
+end
+
+def retrieve_input(input_type)
+  prompt(MESSAGES[input_type])
   loop do
-    loan_duration_years = Kernel.gets().chomp()
-    return (loan_duration_years.to_f) if valid_loan_duration?(loan_duration_years)
-    prompt(MESSAGES["invalid_loan_duration"])
+    input = Kernel.gets().chomp()
+    return input if valid_input?(input, input_type)
+    prompt(MESSAGES["invalid_#{input_type}"])
   end
+end
+
+def retrieve_name
+  prompt(MESSAGES["user_name"])
+  loop do
+    user_name = Kernel.gets().chomp()
+    return user_name unless invalid_name?(user_name)
+    prompt(MESSAGES["invalid_name"])
+  end
+end
+
+def display_greeting(user_name)
+  prompt("Hi, #{user_name}")
 end
 
 def calc_monthly_int_rate(apr)
@@ -87,28 +79,21 @@ def calc_monthly_payment(p, j, n)
   p * (j / (1 - (1 + j)**(-n)))
 end
 
-def display_total_loan_amount(principal_loan_amount)
-  prompt("Total Loan Amount: $ #{principal_loan_amount}")
-end
-
-def display_monthly_interest_rate(monthly_interest_rate)
-  prompt("Monthly Interest Rate: #{monthly_interest_rate * 100}%")
-end
-
-def display_monthly_payment(monthly_payment)
-  prompt("Payment Every Month: $ #{monthly_payment}")
-end
-
-def display_loan_duration_months(loan_duration_months)
-  prompt("Total number of payments: #{loan_duration_months}")
-end
-
-def display_total_amount_paid(total_amount_to_be_paid)
-  prompt("Total amount to be paid: $ #{total_amount_to_be_paid}")
-end
-
-def display_total_interest(total_interest)
-  prompt("Total Interest to be paid: $ #{total_interest}")
+def display(value_type, value)
+  case value_type
+  when "principal_loan_amount"
+    prompt("Total Loan Amount: $ #{value}")
+  when "monthly_interest_rate"
+    prompt("Monthly Interest Rate: #{format('%.2f', (value * 100))}%")
+  when "monthly_payment"
+    prompt("Payment Every Month: $ #{format('%.2f', value)}")
+  when "total_number_payments"
+    prompt("Total number of payments: #{value}")
+  when "total_amount_paid"
+    prompt("Total amount to be paid: $ #{format('%.2f', value)}")
+  when "total_interest"
+    prompt("Total Interest to be paid: $ #{format('%.2f', value)}")
+  end
 end
 
 def valid_ans?(answer)
@@ -153,6 +138,8 @@ loop do
 
   total_interest = total_amount_to_be_paid - principal_loan_amount
 
+  system('clear')
+
   display_total_loan_amount(principal_loan_amount)
 
   display_monthly_interest_rate(monthly_interest_rate)
@@ -168,6 +155,7 @@ loop do
   user_answer = retrieve_play_again()
 
   break unless play_again?(user_answer)
+  system('clear')
 end
 
 prompt(MESSAGES["goodbye"])
