@@ -30,7 +30,7 @@ This implies that the method should be short around 10 lines or so.
 
 ### Writing good methods:
 
-- Don't display something to the output and return a meaningful value. Ruby methods always return something, but if you are displaying something with the method then the return value shouldnt be the intent of the method.
+- **Don't display something to the output and return a meaningful value.** Ruby methods always return something, but if you are displaying something with the method then the return value shouldnt be the intent of the method.
 
 - Decide whether the method should:
   - return a value with no side effects
@@ -54,3 +54,23 @@ Working this way helps compartmentalize your focus which is an important skill w
 If the methods in your program are correctly compartmentalized it makes programming much easier. That is why in good code all the methods are at the same layer of abstraction.
 
 You shouldnt have to think about how a method is implmented when using a method. You should only think about its inputs and outputs.
+
+### Method names should reflect mutation.
+
+for example `update_total`. We can assume that this method will mutate the parameter passed to it. We wouldnt expect it to return a value.
+
+The less you have to remember while using your methods the better. You should just be able to read the name and figure out what the method does without studying its implementation.
+
+Use naming conventions in your code to signify which types of methods mutate vs which methods return values.
+
+The more you have to think about the method, the harder it is to use it.
+
+If it is performing a side effect and at the same time returning a value, this makes debugging and using the method very hard.
+
+Build small methods that are like LEGO blocks: stand alone pieces of functionality that you can put togather to build larger structures.
+
+
+If your methods are extremely convluted then that means that your logic is complex. 
+Its a sign that you dont quite understand the problem well enough to break it down into well compartmentalized pieces.
+
+As your understanding grows of the problem, refactor your code to reflect your growing clarity.

@@ -1,5 +1,4 @@
 # a14_calc_bonus.rb
-require "pry"
 require 'yaml'
 
 LANGUAGE = 'en'
@@ -7,7 +6,6 @@ LANGUAGE = 'en'
 MESSAGES = YAML.load_file('calculator_messages.yml')
 
 def messages(key)
-  binding.pry
   MESSAGES[LANGUAGE][key]
 end
 
