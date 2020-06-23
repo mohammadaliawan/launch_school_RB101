@@ -74,3 +74,27 @@ If your methods are extremely convluted then that means that your logic is compl
 Its a sign that you dont quite understand the problem well enough to break it down into well compartmentalized pieces.
 
 As your understanding grows of the problem, refactor your code to reflect your growing clarity.
+
+Methods are like black boxes.It takes some stuff (input) and returns some value (output) to you. They should be very contained and you should know what they do without having to look up the implementation. Coding will be much easier if you follow these general guidelines.
+
+Remember that code not only has to work properly, but must also be read easily — both by others as well as your future self.
+
+## Miscellaneous Tips:
+
+- Don't prematurely exit the program. 
+
+- All your methods should be at the same mental scope and not just randomly exit the program. 
+
+- Your program should probably only have one exit point.
+
+- Watch your indentation. 2 spaces, not tabs. 
+
+- Name your methods from the perspective of using them later. That is, think about how you would like to invoke them. Think about the implementation later.
+
+- Know when to use a do/while loop instead of a while loop
+
+## Truthiness
+
+> In Ruby everythign is truthy except nil and false.
+
+The first time you are exposed to a new topic, it's going to be daunting. The second time, it's going to be easier and the third time even easier.
