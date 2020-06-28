@@ -3,7 +3,7 @@ def method
   loop do
     puts x
     x += 1
-    return "Hello" if x == 5
+    return "DX" if x == 5
   end
 end
 

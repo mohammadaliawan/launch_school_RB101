@@ -40,14 +40,23 @@ From a high level, writing declarative code segments our program into logical se
 
 ## Steps to solving a problem:
 
-Outline the high level steps to solving the problem in a declarative style of pseudocode. No imperative style yet.
+High level pseudocode the solution to the problem. Outline the high level steps to solving the problem in a declarative style of pseudocode. No specifics or imperative style yet.
+
+
 
 Figure out which processes can be extracted to subprocesses.
 
+Extract a logical grouping into a subprocess and tackle the various pieces seperately.
+Extracting to subprocesses helps us focus on a well defined narrowly scoped set of pseudocode
+
+Thinking about how the high level logic flows allows you to create sub-processes to narrow down the scope of your application. From a high level, writing declarative code segments our program into logical sections, allowing us to focus on one section at a time. 
+
 Optional: Make a flowchart of the high level steps using declerative style.
 
-Once you have the high level steps or overall application logic.
+As you use pseudo-code and flowcharts to help you dissect the logic of a problem, you'll be constantly trying to figure out how detailed the chart and words should be, and what can be extracted to sub-processes. This is exactly what a programmer should be thinking about when designing the solution to a problem. 
 
-Write the Formal Pseudocode and flowcharts in imperative style for each subprocess.
+Once you have the high level steps or overall application logic, 
+Write the Formal Pseudocode and flowcharts in imperative style for each subprocess and outline specifics
 Verify the logic by coding each subprocess.
+
 

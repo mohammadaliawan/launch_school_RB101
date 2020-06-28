@@ -40,7 +40,7 @@ Every language and library has a certain pattern to their stack trace, so the lo
 **Finally use the search engine to look up the error msg** prepend ruby in front of the error msg.
 
 2. Stack Overflow
-2. Ruby Documentation
+3. Ruby Documentation
 
 ### Steps to Debugging: RED BTC TRAPER UPIS TTS
 
