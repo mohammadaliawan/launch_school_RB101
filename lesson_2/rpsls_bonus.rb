@@ -45,14 +45,13 @@ def get_player_name
   end
 end
 
+def get_user_choice
 prompt("Welcome to Rock, Paper, Scissors, Lizard, Spock!")  
 
 player_name = get_player_name()
 
 loop do
-
-
-  choice = ""
+choice = get_user_choice()
   loop do
     prompt("Choose one: #{VALID_CHOICES.join(', ')}")
     choice = Kernel.gets().chomp()
