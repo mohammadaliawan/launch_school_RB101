@@ -42,8 +42,6 @@ From a high level, writing declarative code segments our program into logical se
 
 High level pseudocode the solution to the problem. Outline the high level steps to solving the problem in a declarative style of pseudocode. No specifics or imperative style yet.
 
-
-
 Figure out which processes can be extracted to subprocesses.
 
 Extract a logical grouping into a subprocess and tackle the various pieces seperately.

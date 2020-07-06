@@ -1,6 +1,6 @@
 # Order of Precedence:
 
-The order in operators are evaluated is called order of precedence.
+The order in which operators are evaluated is called order of precedence.
 
 t’s a set of rules that dictate how and in what order operators are evaluated in an expression.
 
