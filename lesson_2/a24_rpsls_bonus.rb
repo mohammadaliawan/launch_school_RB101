@@ -11,7 +11,8 @@ VALID_CHOICES = {
 }
 
 VALID_CHOICES_MESSAGE = <<-MSG
-'r'  for Rock
+Please Enter:
+   'r'  for Rock
    'p'  for Paper
    'sc' for Scissors
    'l'  for Lizard
@@ -35,12 +36,11 @@ def valid_user_choice?(user_choice)
 end
 
 def get_user_choice
-  prompt("Please enter your choice: ")
   loop do
     prompt(VALID_CHOICES_MESSAGE)
     user_choice = Kernel.gets().chomp().downcase()
     return VALID_CHOICES[user_choice] if valid_user_choice?(user_choice)
-    prompt("Incorrect Input! Please Enter a valid choice as below")
+    prompt("Incorrect Input! Please Enter a valid choice.")
   end
 end
 
@@ -68,6 +68,7 @@ end
 
 def greet
   prompt("Welcome to #{VALID_CHOICES.values().join(', ')}.")
+  prompt("Rules of the game are: First to #{WINNING_SCORE} points Wins the Match!")
 end
 
 def get_user_name
@@ -79,7 +80,8 @@ def get_user_name
   end
 end
 
-def new_round
+def new_round(round)
+  prompt("**ROUND ---->>>> [#{round}]**")
   user_choice = get_user_choice()
 
   computer_choice = get_computer_choice()
@@ -119,11 +121,10 @@ greet()
 user_name = get_user_name()
 
 score = {user: 0, computer: 0}
+round = 1
 
 loop do
-  round_result = new_round()
-  
-  system('clear')
+  round_result = new_round(round)
 
   prompt(round_result)
 
@@ -132,6 +133,7 @@ loop do
   display_score(score)
 
   break unless next_round?(score)
+  round += 1
 end
 
 display_grand_winner(score)

@@ -6,6 +6,15 @@ WINNING_SCENARIOS = {
   "spock"    => [ "rock", "scissors" ]
 }
 
+def update_score(score, round_result)
+  case round_result
+  when "User Wins!"
+    score[:user] += 1
+  when "Computer Wins!"
+    score[:comp] += 1
+  end
+end
+
 def find_result(user_choice, computer_choice)
   if WINNING_SCENARIOS[user_choice].include?(computer_choice)
     "User Wins!"
@@ -16,34 +25,45 @@ def find_result(user_choice, computer_choice)
   end
 end
 
-p find_result("rock", "paper") == "Computer Wins!"
-p find_result("rock", "scissors") == "User Wins!"
-p find_result("rock", "lizard") == "User Wins!"
-p find_result("rock", "spock") == "Computer Wins!"
-p find_result("rock", "rock") == "It's a Tie!"
+score = {user: 0, comp: 0}
 
-p find_result("paper", "rock") == "User Wins!"
-p find_result("paper", "scissors") == "Computer Wins!"
-p find_result("paper", "spock") == "User Wins!"
-p find_result("paper", "lizard") == "Computer Wins!"
-p find_result("paper", "paper") == "It's a Tie!"
+p score
 
-p find_result("scissors", "rock") == "Computer Wins!"
-p find_result("scissors", "scissors") == "It's a Tie!"
-p find_result("scissors", "spock") == "Computer Wins!"
-p find_result("scissors", "lizard") == "User Wins!"
-p find_result("scissors", "paper") == "User Wins!"
+update_score(score, "Computer Wins!")
+update_score(score, "Computer Wins!")
+update_score(score, "It's a Tie!")
 
-p find_result("lizard", "rock") == "Computer Wins!"
-p find_result("lizard", "paper") == "User Wins!"
-p find_result("lizard", "scissors") == "Computer Wins!"
-p find_result("lizard", "lizard") == "It's a Tie!"
-p find_result("lizard", "spock") == "User Wins!"
+p score
 
-p find_result("spock", "rock") == "User Wins!"
-p find_result("spock", "paper") == "Computer Wins!"
-p find_result("spock", "scissors") == "User Wins!"
-p find_result("spock", "lizard") == "Computer Wins!"
-p find_result("spock", "spock") == "It's a Tie!"
+
+# p find_result("rock", "paper") == "Computer Wins!"
+# p find_result("rock", "scissors") == "User Wins!"
+# p find_result("rock", "lizard") == "User Wins!"
+# p find_result("rock", "spock") == "Computer Wins!"
+# p find_result("rock", "rock") == "It's a Tie!"
+
+# p find_result("paper", "rock") == "User Wins!"
+# p find_result("paper", "scissors") == "Computer Wins!"
+# p find_result("paper", "spock") == "User Wins!"
+# p find_result("paper", "lizard") == "Computer Wins!"
+# p find_result("paper", "paper") == "It's a Tie!"
+
+# p find_result("scissors", "rock") == "Computer Wins!"
+# p find_result("scissors", "scissors") == "It's a Tie!"
+# p find_result("scissors", "spock") == "Computer Wins!"
+# p find_result("scissors", "lizard") == "User Wins!"
+# p find_result("scissors", "paper") == "User Wins!"
+
+# p find_result("lizard", "rock") == "Computer Wins!"
+# p find_result("lizard", "paper") == "User Wins!"
+# p find_result("lizard", "scissors") == "Computer Wins!"
+# p find_result("lizard", "lizard") == "It's a Tie!"
+# p find_result("lizard", "spock") == "User Wins!"
+
+# p find_result("spock", "rock") == "User Wins!"
+# p find_result("spock", "paper") == "Computer Wins!"
+# p find_result("spock", "scissors") == "User Wins!"
+# p find_result("spock", "lizard") == "Computer Wins!"
+# p find_result("spock", "spock") == "It's a Tie!"
 
 
