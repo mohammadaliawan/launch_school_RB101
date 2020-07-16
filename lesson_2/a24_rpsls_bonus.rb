@@ -1,5 +1,3 @@
-require 'pry'
-
 WINNING_SCORE = 5
 
 VALID_CHOICES = {
