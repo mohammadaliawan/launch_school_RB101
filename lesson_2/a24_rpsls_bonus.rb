@@ -2,11 +2,11 @@ require 'pry'
 
 WINNING_SCORE = 5
 
-VALID_CHOICES = { 
-  "r"  => "rock",
-  "p"  => "paper",
+VALID_CHOICES = {
+  "r" => "rock",
+  "p" => "paper",
   "sc" => "scissors",
-  "l"  => "lizard",
+  "l" => "lizard",
   "sp" => "spock"
 }
 
@@ -19,12 +19,12 @@ Please Enter:
    'sp' for Spock
    MSG
 
-WINNING_SCENARIOS = { 
-  "rock"     => [ "lizard", "scissors" ],
-  "paper"    => [ "rock", "spock" ],
-  "scissors" => [ "lizard", "paper" ],
-  "lizard"   => [ "spock", "paper" ],
-  "spock"    => [ "rock", "scissors" ]
+WINNING_SCENARIOS = {
+  "rock" => ["lizard", "scissors"],
+  "paper" => ["rock", "spock"],
+  "scissors" => ["lizard", "paper"],
+  "lizard" => ["spock", "paper"],
+  "spock" => ["rock", "scissors"]
 }
 
 def prompt(message)
@@ -62,22 +62,9 @@ def display_goodbye
   prompt("Thank you for playing! Goodbye!")
 end
 
-def invalid_name?(user_name)
-  user_name.empty?() || /^ +$/.match(user_name)
-end
-
 def greet
   prompt("Welcome to #{VALID_CHOICES.values().join(', ')}.")
-  prompt("Rules of the game are: First to #{WINNING_SCORE} points Wins the Match!")
-end
-
-def get_user_name
-  prompt("Please enter your name:")
-  loop do
-    user_name = Kernel.gets().chomp().capitalize()
-    return user_name unless invalid_name?(user_name)
-    prompt("Please Enter a Valid Name!")
-  end
+  prompt("First to #{WINNING_SCORE} points Wins the Match!")
 end
 
 def new_round(round)
@@ -86,10 +73,9 @@ def new_round(round)
 
   computer_choice = get_computer_choice()
 
-  both_choices = "User Chose: #{user_choice.capitalize()}, Computer Chose: #{computer_choice.capitalize()}"
-  prompt(both_choices)
+  prompt("User Chose: #{user_choice}, Computer Chose: #{computer_choice}")
 
-  round_result = find_result(user_choice, computer_choice)
+  find_result(user_choice, computer_choice)
 end
 
 def update_score(score, round_result)
@@ -106,11 +92,11 @@ def next_round?(score)
 end
 
 def display_score(score)
-  prompt("Total Score: User -> #{score[:user]} | Computer -> #{score[:computer]}")
+  prompt("Total Score: User: #{score[:user]} | Computer:#{score[:computer]}")
 end
 
 def display_grand_winner(score)
-  if score[:user] == 5 
+  if score[:user] == 5
     prompt("Congrats! You are the Grand Winner of this Match!")
   else
     prompt("Sorry you lost! Computer wins this Match!")
@@ -118,9 +104,8 @@ def display_grand_winner(score)
 end
 
 greet()
-user_name = get_user_name()
 
-score = {user: 0, computer: 0}
+score = { user: 0, computer: 0 }
 round = 1
 
 loop do
