@@ -1,14 +1,15 @@
-numbers = [1,2,2,3]
-numbers.uniq
+numbers = [1, 2, 2, 3]
 
-p numbers # => [1, 2, 2, 3]
+numbers.uniq # [1.2,3]
 
-# First we assigned an array of numbers
-# to the local variable numbers
-# Then we invoke the Array#uniq method
-# The Array#uniq method is non mutating
-# it returns a new array object which is a copy
-# of the original array object with the duplicate
-# values removed.
-# So numbers array is not modified. `puts numbers` displays the
-# the original array.
+puts numbers.inspect # [1, 2, 2, 3]
+
+=begin
+Array#uniq method is a non mutating method that
+returns a new array by removing duplicates from the calling array.
+
+So line number 3 returns a new array but that array is not assigned
+to any variables so it is not stored.
+
+Line number 5 outputs the original array since the numbers was not mutated.
+=end
