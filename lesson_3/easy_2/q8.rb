@@ -1,5 +1,5 @@
 advice = "Few things in life are as important as house training your pet dinosaur."
 
-p advice.include?("dino")
+p advice.slice(0,advice.index("house"))
 
-p advice.match?("dino")
+p advice
