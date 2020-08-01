@@ -1,4 +1,4 @@
-limit = 15
+limit = 30
 
 def fib(first_num, second_num, limit)
   while first_num + second_num < limit
@@ -11,5 +11,3 @@ end
 
 result = fib(0, 1, limit)
 puts "result is #{result}"
-
-0, 1
