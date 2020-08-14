@@ -1,3 +1,10 @@
+=begin
+input: a string with dots
+Ouput: 
+=end
+
+
+
 def dot_separated_ip_address?(input_string)
   dot_separated_words = input_string.split(".")
   while dot_separated_words.size > 0 do

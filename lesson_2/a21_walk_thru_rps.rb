@@ -14,11 +14,13 @@ def test_method
   prompt('test_message')
 end
 
+test_method()
+
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-test_method()
+
 
 def win?(first, second)
   (first == "rock" && second == "scissors") ||

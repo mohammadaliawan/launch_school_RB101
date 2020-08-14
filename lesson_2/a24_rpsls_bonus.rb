@@ -86,7 +86,7 @@ def update_score(score, round_result)
 end
 
 def someone_won?(score)
-  score[:user] < WINNING_SCORE && score[:computer] < WINNING_SCORE
+  score[:user] == WINNING_SCORE || score[:computer] == WINNING_SCORE
 end
 
 def display_score(score)
@@ -115,7 +115,7 @@ loop do
 
   display_score(score)
 
-  break unless someone_won?(score)
+  break if someone_won?(score)
   round += 1
 end
 
