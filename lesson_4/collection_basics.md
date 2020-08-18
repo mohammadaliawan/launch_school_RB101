@@ -13,10 +13,10 @@ In order to be able to work with collections, we need to understand:
 
 #### What is the Structure of Strings:
 
-Strings are made up of 
-- individual characters 
-- that are ordered 
-- and have an integer based index. (starting from 0)
+Strings are made up of (COI)
+- individual characters (C)
+- that are ordered (O)
+- and have an integer based index.(I) (starting from 0)
 
 #### How to reference individual characters of strings:
 
@@ -61,16 +61,16 @@ Here we are calling the `[0]` on the return value of `str[4,5]`
 
 Arrays are:
 
-- made up of references to actual objects
-- Ordered
-- Integer Indexed Lists (startng with 0 index)
-- of objects (of any type)
+- made up of references to actual objects (R)
+- Ordered (O)
+- Integer Indexed Lists (startng with 0 index) (I)
+- of objects (of any type)(O)
 
-#### How to Reference an in an Array: 
+#### How to Reference an element in an Array: 
 
 Just like in strings, a specific element in an array can be referenced using it's index .
 
-Use the element refernce method or the slice method:
+Use the element reference method or the slice method:
 
 ```ruby
 ary = %w(a b c d e f g)
@@ -88,6 +88,12 @@ ary[range] --> new_ary or nil
 ary.slice(starting_index, number of elements) --> new_ary or nil
 ary[range] --> new_ary or nil
 ```
+
+
+In both strings and arrays element reference is done is the same way:
+Using the #slice method, for which the #[] is ruby syntactical sugar.
+In both cases the slice method returns a new_ary or a new_str except in the case of Arrays when a single index is passed
+It returns an obj at that index but in the case of strings it always returns a new_str.
 
 ### Hashes
 
