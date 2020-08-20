@@ -1,6 +1,6 @@
 # What are Collections 
 
-Collections e.g Strings, Arrays and Hashes are made up of individual elements.
+Collections e.g Strings, Arrays and Hashes are made up of individual elements/objects
 
 In order to be able to work with collections, we need to understand:
 - their structure
@@ -13,18 +13,16 @@ In order to be able to work with collections, we need to understand:
 
 #### What is the Structure of Strings:
 
-Strings are made up of (COI)
-- individual characters (C)
-- that are ordered (O)
-- and have an integer based index.(I) (starting from 0)
+Strings use an integer based index that represents each character in the string. The index starts from 0 and increments by one.
 
 #### How to reference individual characters of strings:
 
 We can use the string element reference method to reference each character of a string.
 
 str[index] -> new_str or nil
+str.slice(index) --> new_str or nil
 
-If given a single integer as an argument to this method, this method returns a single character string at that index in the string. 
+If passed a single index, returns a substring of one character at that index.
 
 The string element reference method is actually syntactical sugar for the String#slice method.
 
@@ -39,6 +37,10 @@ The same String element reference method String#[] or String#slice can be used t
 
 ```
 
+- If passed a start index and a length, returns a substring containing length characters starting at the start index.
+
+- If passed a range, its beginning and end are interpreted as offsets delimiting the substring to be returned.
+
 ```ruby
 str = "The grass is green"
 
@@ -48,29 +50,26 @@ str.slice(4,5) -> "grass"
 
 ```
 
-BTW we can also chain the slice or [] method to reference some substring or character in the returned substring like so:
-
-```ruby
-str[4,5][0] -> "g"
-```
-Here we are calling the `[0]` on the return value of `str[4,5]`
 
 ### Arrays
 
 #### What is the Structure of Arrays:
 
-Arrays are:
+Arrays are: are lists of elements/objects that are ordered by an integer based index.
 
-- made up of references to actual objects (R)
-- Ordered (O)
-- Integer Indexed Lists (startng with 0 index) (I)
-- of objects (of any type)(O)
+- lists of objects
+- ordered by
+- a zero/integer based index
 
 #### How to Reference an element in an Array: 
 
 Just like in strings, a specific element in an array can be referenced using it's index .
 
+Just as with String, arr#[] is alternative syntax for the Array#slice method.
+
 Use the element reference method or the slice method:
+
+Element Reference — Returns the element at index,
 
 ```ruby
 ary = %w(a b c d e f g)
@@ -78,8 +77,11 @@ ary = %w(a b c d e f g)
 ary[index] --> obj (at index) or nil
 ary.slice(index) --> obj (at index) or nil
 ```
+ary[2,3] is alternative syntax for ary.slice method.
 
 #### How to reference multiple elements in an array:
+
+ Element Reference - returns a **subarray** starting at the start index and continuing for length elements, or returns a **subarray** specified by range of indices.
 
 ```ruby
 ary[starting_index, number of elements] --> new_ary or nil
@@ -101,7 +103,7 @@ It returns an obj at that index but in the case of strings it always returns a n
 
 Hashes are a collection:
 - stores elements by associated keys
-- Enries are called key-value pairs
+- Entries are called key-value pairs
 - keys are unique
 - keys and values can be any type of object
 
@@ -136,4 +138,24 @@ hsh[key] -> value, Retrieves the value obj corresponding to the key obj.If not f
 
 No. Keys must be unique. Any duplicated keys will be overwritten.
 
+#### Can values in a hash be duplicated?
 
+Yes, two different keys can have the same value..
+
+#### What is the difference between using Array#fetch method and the Array#[]
+
+Array#[] returns the obj at the index provided or nil if the provided index is out of bounds for the array. The problem is that we cant be sure if the nil obj returned is an actual obj stored in the array or is it the return value for an out of bounds index. 
+
+This is where the Array#fetch comes in. If passed in a single argument that is an integer, it return the obj at that integer index. And if the given index is out of bounds, it throws an IndexError. 
+
+fetch(index) → obj
+fetch(index, default) → obj
+fetch(index) {|index| block} → obj
+
+- Tries to return the element at position index, 
+- but throws an IndexError exception if the referenced index lies outside of the array bounds. 
+- This error can be prevented by supplying a second argument, which will act as a default value.
+- if a block is given it will only be executed when an invalid index is referenced.
+
+
+### Negative Indices
