@@ -159,3 +159,26 @@ fetch(index) {|index| block} → obj
 
 
 ### Negative Indices
+
+
+
+### Invalid Hash Keys
+
+
+
+## Conversion
+
+### Array to strings
+
+
+
+### Strings to arrays
+
+
+### Hashes to arrays
+
+
+### Arrays to Hashes
+
+
+## Element Assignment

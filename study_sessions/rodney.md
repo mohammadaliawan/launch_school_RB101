@@ -55,3 +55,9 @@ end
 p difference_of_two([1, 2, 3, 4]) ==  [[1, 3], [2, 4]] # happy 
 p difference_of_two([4, 1, 2, 3]) == [[1, 3], [2, 4]]
 p difference_of_two([4, 3, 1, 5, 6]) == [[1, 3], [3, 5], [4, 6]]
+
+# Learning - Exposure - processing 
+  # - 
+# Practice - Problem - Applying or breaking down meanings further
+ # - if you cant solve it in ..mins then look at the answer, try to figure out what they did
+# Teaching - Mastery - Sharing content with others   ve  vv4v 

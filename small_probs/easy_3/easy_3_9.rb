@@ -35,13 +35,38 @@ output: boolean
 Algo:
 
 - Clean the string  (delete all irrelevent characters)
+   transfer all the valid characters to a new string
+    - make a copy of the original string with all character downcased
+    - a new_str = ""
+    - valid characters are ("a".."z" and "0".."9")
+    - iterate through the original string
+        if char is a valid string, transfer to a new str
 - Check if the cleaned string is a palindrome
+   The palidrome method
 
 =end
 
+VALID_CHARS = ("a".."z").to_a + ("0".."9").to_a
 
-def palindrome?(string)
-  reversed_string = string.reverse
+def valid_string(org_string)
+  str = org_string.downcase
   
-  string == reversed_string
+  valid_chars_array = str.chars.select {|char| VALID_CHARS.include?(char)}
+  
+  valid_chars_str = valid_chars_array.join
 end
+
+valid_string("Madam, I'm Adam")
+
+def real_palindrome?(org_string)
+  valid_chars_str = valid_string(org_string)
+  
+  valid_chars_str == valid_chars_str.reverse
+end
+
+p real_palindrome?('madam') == true
+p real_palindrome?('Madam') == true           # (case does not matter)
+p real_palindrome?("Madam, I'm Adam") == true # (only alphanumerics matter)
+p real_palindrome?('356653') == true
+p real_palindrome?('356a653') == true
+p real_palindrome?('123ab321') == false
