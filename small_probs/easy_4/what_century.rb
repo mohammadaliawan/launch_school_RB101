@@ -69,12 +69,7 @@ Given a year
 
 3. Concatenate the century_number + suffix
 
-
-
-
-
 =end
-
 
 
 def find_century_number(year)
