@@ -104,13 +104,13 @@ RETURN result
 
 =end
 
-def find_substrings(str)
+def find_substrings(str,min_chars)
   substring_ary = []
 
   starting_index = 0
 
-  while starting_index <= (str.size - 2)
-    length_substring = 2
+  while starting_index <= (str.size - min_chars)
+    length_substring = min_chars
     while length_substring <= (str.size - starting_index)
       substring_ary << str[starting_index, length_substring]
       length_substring += 1
@@ -126,7 +126,7 @@ def palindrome?(word)
 end
 
 def palindrome_substrings(str)
-  substring_ary = find_substrings(str)
+  substring_ary = find_substrings(str,2)
 
   result = []
   counter = 0
