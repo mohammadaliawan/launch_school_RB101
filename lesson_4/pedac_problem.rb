@@ -4,6 +4,8 @@
 # Given a string, write a method change_me which returns the same
 # string but with all the words in it that are palindromes uppercased.
 
+string = "ab ba"
+
 # change_me("We will meet at noon") == "We will meet at NOON"
 # change_me("No palindromes here") == "No palindromes here"
 # change_me("") == ""
@@ -25,12 +27,16 @@
 #          Words are considered to be groups of characters seperated by a space.
 #          Space is not considered to determine if a group of chars is a palindrome
           words will be seperated by a single space both in the input and the ouput
+
+Questions:
+
+
 Algorithm:
 
 Given a string of words seperated by spaces
 - Init a new empty array to store the final result
 - Convert the string to an array of words (words are seperated by spaces)
-- Create method that would return true if a string is a palindrome false otherwise
+- Create a subprocess that would return true if a string is a palindrome false otherwise
 - Iterate through the array of words
     if the word is a palindrome change case to uppercase and append to the new empty array
     if it is not then append it as it is to the new array
@@ -46,14 +52,14 @@ Convert the string to an array of words
   SET words_ary = str.split(" ")
 
 SUBPROCESS Palindrome?(word)
-  word.reverse == word
+  reversed word == word
 END
 
 Iterate through the array of words
-  IF SUBPROCESS Palindrome?(word) = TRUE
-    append word.upcase to result array
+  IF SUBPROCESS Palindrome?(word) == TRUE
+    append uppcased word to result array
   ELSE
-    append word to result
+    append word to result array
   END
 END
 
@@ -71,13 +77,23 @@ def change_me(str)
 
   words_array = str.split
 
-  words_array.each do |word|
+# Two way to do the same thing:
+
+  result = words_array.map do |word|
     if palindrome?(word)
-      result.push(word.upcase)
-    else
-      result.push(word)
+      word = word.upcase
     end
+    word
   end
+
+  # words_array.each do |word|
+  #   if palindrome?(word)
+  #     result.push(word.upcase)
+  #   else
+  #     result.push(word)
+  #   end
+  # end
+
   result.join(" ")
 end
 
