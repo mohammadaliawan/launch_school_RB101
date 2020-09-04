@@ -144,3 +144,21 @@ p palindrome_substrings("supercalifragilisticexpialidocious") == ["ili"]
 p palindrome_substrings("abcddcbA") == ["bcddcb", "cddc", "dd"]
 p palindrome_substrings("palindrome") == []
 p palindrome_substrings("") == []
+
+starting_index = 0 ---> string.size - min_chars
+
+length = min_chars ---> string.size - starting_index
+def substrings(string, min_chars)
+  
+  substrings_ary = []
+  
+  0.upto(string.size - min_chars) do |starting_index|
+    min_chars.upto(string.size - starting_index) do |length|
+      substrings_ary << string[starting_index, length]
+    end
+  end
+  
+  substrings_ary
+end
+
+p substrings("hello", 2)
