@@ -104,56 +104,72 @@ RETURN result
 
 =end
 
-def find_substrings(str,min_chars)
-  substring_ary = []
+# def find_substrings(str,min_chars)
+#   substring_ary = []
 
-  starting_index = 0
+#   starting_index = 0
 
-  while starting_index <= (str.size - min_chars)
-    length_substring = min_chars
-    while length_substring <= (str.size - starting_index)
-      substring_ary << str[starting_index, length_substring]
-      length_substring += 1
-    end
-    starting_index += 1
-  end
-  substring_ary
-end
+#   while starting_index <= (str.size - min_chars)
+#     length_substring = min_chars
+#     while length_substring <= (str.size - starting_index)
+#       substring_ary << str[starting_index, length_substring]
+#       length_substring += 1
+#     end
+#     starting_index += 1
+#   end
+#   substring_ary
+# end
 
 
-def palindrome?(word)
-  word.reverse == word
-end
+# def palindrome?(word)
+#   word.reverse == word
+# end
 
-def palindrome_substrings(str)
-  substring_ary = find_substrings(str,2)
+# def palindrome_substrings(str)
+#   substring_ary = find_substrings(str,2)
 
-  result = []
-  counter = 0
+#   result = []
+#   counter = 0
 
-  while counter < substring_ary.size
-    if palindrome?(substring_ary[counter])
-      result << substring_ary[counter]
-    end
-    counter += 1
-  end
-  result
-end
+#   while counter < substring_ary.size
+#     if palindrome?(substring_ary[counter])
+#       result << substring_ary[counter]
+#     end
+#     counter += 1
+#   end
+#   result
+# end
 
-p palindrome_substrings("supercalifragilisticexpialidocious") == ["ili"]
-p palindrome_substrings("abcddcbA") == ["bcddcb", "cddc", "dd"]
-p palindrome_substrings("palindrome") == []
-p palindrome_substrings("") == []
+# p palindrome_substrings("supercalifragilisticexpialidocious") == ["ili"]
+# p palindrome_substrings("abcddcbA") == ["bcddcb", "cddc", "dd"]
+# p palindrome_substrings("palindrome") == []
+# p palindrome_substrings("") == []
 
-starting_index = 0 ---> string.size - min_chars
+# starting_index = 0 ---> string.size - min_chars
 
-length = min_chars ---> string.size - starting_index
+# length = min_chars ---> string.size - starting_index
+
+# def substrings(string, min_chars)
+  
+#   substrings_ary = []
+  
+#   0.upto(string.size - min_chars) do |starting_index|
+#     min_chars.upto(string.size - starting_index) do |length|
+#       substrings_ary << string[starting_index, length]
+#     end
+#   end
+  
+#   substrings_ary
+# end
+
+# p substrings("hello", 1)
+
 def substrings(string, min_chars)
   
   substrings_ary = []
   
   0.upto(string.size - min_chars) do |starting_index|
-    min_chars.upto(string.size - starting_index) do |length|
+    (starting_index + min_chars - 1).upto(string.size - starting_index) do |length|
       substrings_ary << string[starting_index, length]
     end
   end
@@ -161,4 +177,4 @@ def substrings(string, min_chars)
   substrings_ary
 end
 
-p substrings("hello", 2)
+p substrings("hello", 1)
