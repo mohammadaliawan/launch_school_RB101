@@ -25,6 +25,13 @@ Helps to establish a frame of reference for understanding the problem and determ
 
 ## D: Data Structures
 
+- Help to reason with data more logically.
+- Help us to interact with data at an implementation level.
+- Thinking in terms of data structures is part of the overall problem solving process.
+- Data Structures are closely linked to the algorithm
+  - Set of steps from the input to the Output
+
+
 ## Algorithm
 
 ## Implementing a solution in code
