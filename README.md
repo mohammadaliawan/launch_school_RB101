@@ -34,12 +34,12 @@ Should be able to understand these concepts in the context of the programming la
 
 What can a programming language do and how does it do it?
 
+- Simple Datastructures (integers, floats, strings)
 - Variables, Variable Scope
 - Object Passing
 - Control Structure
 - Method Definitions, Return Values
 - Looping
-- Simple Datastructures (integers, floats, strings)
 - Collection Data Structures(Strings, Hashes, Arrays)
 - idiomatic Methods for different Datastructures
 - How do Blocks work in that programming language

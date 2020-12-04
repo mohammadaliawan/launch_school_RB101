@@ -1,8 +1,24 @@
 # Pseudocode
 
+Here's an example of some pseudo-code for a method that determines which number is greatest in a collection.
+
+```
+Given a collection of integers.
+
+Iterate through the collection one by one.
+  - save the first value as the starting value.
+  - for each iteration, compare the saved value with the current value.
+  - if the saved value is greater, or it's the same
+    - move to the next value in the collection
+  - otherwise, if the current value is greater
+    - reassign the saved value as the current value
+
+After iterating through the collection, return the saved value.
+```
+
 When you first approach a problem its important that you spend some time to understand it. To do that you have to load the problem into your brain. 
 
-Only then you can dissect it, understand its different parts and come up with an execution path to solve it.
+Only then you can dissect it, understand its different parts and come up with an execution path to solve it. But if you are trying to do that while at the same time using a programming language, you keep getting bogged down by language syntax issues. So basically 
 
 There are two layers to solving any problem:
 
@@ -30,9 +46,9 @@ END: end of the program
 
 After writing the pseudocode write the code and verify its logic.
 
-For sophisticated problems take a piecemeal approach to applying pseudocode, then translate that to ruby code tp verify that the logic is correct, then moving on to the next piece in the problem.
+For more sophisticated problems, we need to take a piecemeal approach to applying pseudo-code, then translating that to Ruby code to verify the logic is correct, then moving on to the next piece in the problem. 
 
-Step by step we can slowly load the problem into our brain and verifying that the logic each step of the way.
+Step by step, we can slowly load the problem into our brain, verifying the logic each step along the way.
 
 For example:
 
