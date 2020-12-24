@@ -20,7 +20,7 @@ C Code
 
 Helps you save time and lets you solve **complex** problems effiiciently.
 
-## P - Understanding the Problem- Making the Problem and required solution crystal clear.
+## P - Understanding the Problem- Making the Problem and requirements crystal clear.
 
   Helps to establish a frame of reference for understanding the problem and determining a solution.
 
@@ -64,9 +64,7 @@ Explicit: Problem statement
 
 Implicit: Check test cases, ask interviewer
 
-Special Terms:
-
-Assumptions:
+Questions & Special Terms:
 
 ## Examples and Test Cases
 
@@ -104,7 +102,7 @@ Limits to the input;
   - Report Errors- Exception Handling
   - Return a value e.g. 0, "", [], nil, null etc.
 
-## DataStructure / Algorithm
+## Data Structures
 
 Data Structures Influence your Algorithm.
 
@@ -116,28 +114,36 @@ Data Structures Influence your Algorithm.
   - These steps involve strucuring data in a certain way,
 
 
-### Algorithm Approach:
+## Algorithm Approach:
 
  - A logical sequence of steps for accomplishing a task or objective.
  - Closely linked to the data structures
  - the steps required to structure the data in a way that produces the required output.
 
- - Stay abstract and high level
-   - write out the algorithm in plain english words. No formal psuedocode. 
-   - avoid implementation details
-   - Dont worry about efficiency for now.
-   - See if any of the steps need further detail (e.g any vague steps that seem too complex to be just one step)
- - You can come back to the algorithm to add implementation level notes once you start the implementation in code.
- - The primary objective is to come up with an algorithm that solves the problem.
-
 After selecting your data structures:
 
 1. Write a high level algorithm in simple english
-2. write out the psuedocode for the main method with SUBPROCESSES
-2. Next write out the main skeleton of the method
+  - Stay abstract and high level
+   - write out the algorithm in plain english words. No formal psuedocode. 
+   - avoid implementation details. No psuedocode either
+   - Dont worry about efficiency for now.
+   
 
-3. Then go into a little more detail for the hardest step first in the algo
-4. Wrtie the pseudocode for this step
-5. Code this step and test
+2. Think about each step of the Algorithm. Which one seems the hardest. See if any of the steps need further detail (e.g any vague steps that seem too complex to be just one step)
+    - Extract a complex step to a mini problem
+    - Analyze the mini problem using PEDAC
+    - Come up with an algorithm for this mini problem, still avoiding implementation details.
+    - You can come back to the algorithm to add implementation level notes once you start the implementation in code.
+    - The primary objective is to come up with an algorithm that solves the problem.
+  
+## Implementating a solution in code:
 
-6. repeat steps 3,4,5
+- Translate the solution algorithm to code
+  - Create implementation level notes i.e psuedocoding
+  - THink about the algorithm in context of the programming language
+     - Language features and constraints
+     - Characteristics of data structures
+     - Built in functions/ methods
+     - syntax and coding patterns 
+  - Create test cases
+  - Code with intent : What each line of code is doing
