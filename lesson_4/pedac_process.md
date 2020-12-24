@@ -43,9 +43,7 @@
    - avoid implementation details
    - Dont worry about efficiency for now.
    - See if any of the steps need further detail (e.g any vague steps that seem too complex to be just one step)
-
  - You can come back to the algorithm to add implementation level notes once you start the implementation in code.
-
  - The primary objective is to come up with an algorithm that solves the problem.
 
 ## Implementing a solution in code
@@ -85,7 +83,8 @@
     4,6
     8,10,12
     14,16,18,20
-    ...
+    22,24,26,28,30
+    32,34,36,38,40,42
 
   How do we create the structure?
 

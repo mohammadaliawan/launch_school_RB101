@@ -46,7 +46,7 @@ END: end of the program
 
 After writing the pseudocode write the code and verify its logic.
 
-For more sophisticated problems, we need to take a piecemeal approach to applying pseudo-code, then translating that to Ruby code to verify the logic is correct, then moving on to the next piece in the problem. 
+**For more sophisticated problems**, we need to take a piecemeal approach to applying pseudo-code, then translating that to Ruby code to verify the logic is correct, then moving on to the next piece in the problem. 
 
 Step by step, we can slowly load the problem into our brain, verifying the logic each step along the way.
 

@@ -125,18 +125,18 @@ user_name = retrieve_name()
 prompt("Hi, #{user_name}!")
 
 loop do # main loop
-  number1 = retrieve_number(1)
-  number2 = retrieve_number(2)
+  number1 = retrieve_number(1) # Get first number
+  number2 = retrieve_number(2) # Get second number
 
-  operator = retrieve_op()
+  operator = retrieve_op() # Get operator
 
-  display_op_msg(operator)
+  display_op_msg(operator) # Display the Operational Msg
 
-  result = calculate(number1, number2, operator)
+  result = calculate(number1, number2, operator) # find result
 
-  display_result(result)
+  display_result(result) # Display Result
 
-  answer = perform_another_calc()
+  answer = perform_another_calc() # Get Perform another calculation
 
   break unless play_again?(answer)
   system('clear')
