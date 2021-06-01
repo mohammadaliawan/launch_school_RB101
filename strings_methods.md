@@ -1,1 +1,0 @@
-strings_method.md

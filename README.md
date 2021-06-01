@@ -18,8 +18,8 @@ RB101 has two distinct parts
 Lessons:
 
 - Small Problems
-- PEDAC
-- Large Problems
+- PEDAC - Done
+- Large Problems - Done
 
 This part is about how to go about solving a problem
 - Understanding a problem and all its requirements and rules, edge cases etc.

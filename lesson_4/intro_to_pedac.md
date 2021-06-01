@@ -140,6 +140,7 @@ After selecting your data structures:
 
 - Translate the solution algorithm to code
   - Create implementation level notes i.e psuedocoding
+  for each of the steps of the algorithm if the step seems too complex
   - THink about the algorithm in context of the programming language
      - Language features and constraints
      - Characteristics of data structures
@@ -147,3 +148,5 @@ After selecting your data structures:
      - syntax and coding patterns 
   - Create test cases
   - Code with intent : What each line of code is doing
+  - Test your code after writing each new line of code and check if it runs as expected  
+
