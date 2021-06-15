@@ -1,27 +1,27 @@
-# ask the user for two numbers
-# ask the user the type of operation to perform
-# perform the operation on the two numbers
-# output the result
+# get the first number from the user
+# get the second number from the user
+# get the operation to be performed from the user
+# perform the operation
+# display result
+
 
 Kernel.puts("Welcome to the Calculator!")
 
-Kernel.puts("What is the first number?")
-number1 = Kernel.gets().chomp()
+Kernel.puts("Enter the first number:")
+number_1 = Kernel.gets().chomp()
 
-Kernel.puts("What is the second number?")
-number2 = Kernel.gets().chomp()
+Kernel.puts("Enter the second number:")
+number_2 = Kernel.gets().chomp()
 
-Kernel.puts("What operation do you want to perform?1) add, 2) subtract, 3) multiply, 4) divide")
-operator = Kernel.gets().chomp()
+Kernel.puts("Enter the Operation you want to be perform: 1) Add, 2) Subtract, 3) Multiply, 4) Divide")
+operation = Kernel.gets().chomp()
 
-result = if operator == '1'
-           number1.to_i() + number2.to_i()
-         elsif operator == '2'
-           number1.to_i() - number2.to_i()
-         elsif operator == '3'
-           number1.to_i() * number2.to_i()
-         else
-           number1.to_f() / number2.to_f()
-         end
-
-Kernel.puts("The result is #{result}")
+if operation == '1'
+  Kernel.puts("The result is #{number_1.to_i() + number_2.to_i()}")
+elsif operation == '2'
+ Kernel.puts("The result is #{number_1.to_i() - number_2.to_i()}")
+elsif operation == '3'
+  Kernel.puts("The result is #{number_1.to_i() * number_2.to_i()}")
+else
+  Kernel.puts("The result is #{number_1.to_f() / number_2.to_f()}")
+end
