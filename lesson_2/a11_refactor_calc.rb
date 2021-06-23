@@ -1,12 +1,18 @@
+require "yaml"
+
+OPERATOR_PROMPT = <<~MSG
+    Enter the Operation you want to be perform:
+    1) Add
+    2) Subtract
+    3) Multiply
+    4) Divide
+  MSG
+
 def prompt(string)
-  Kernel.puts("=> #{string}")
+  p("=> #{string}")
 end
 
-def valid_number?(num)
-  num.to_i() != 0
-end
-
-def operation_to_message(op)
+def op_to_msg(op)
   case op
   when '1'
     'Adding'
@@ -19,74 +25,121 @@ def operation_to_message(op)
   end
 end
 
-prompt("Welcome to the Calculator! Enter your name:")
-
-name = ''
-loop do
-  name = Kernel.gets().chomp()
-
-  break unless name.empty?()
-  prompt("Make sure to enter a valid name!")
+def float?(number)
+  number.to_f().to_s() == number
 end
 
-prompt("Hello #{name}!")
+def integer?(number)
+  number.to_i().to_s() == number
+end
 
-loop do # main loop
-  number1 = ''
+def number?(num)
+  integer?(num) || float?(num)
+end
+
+def alphabet?(char)
+  (("A".."Z").to_a + ("a".."z").to_a + [" "]).include?(char)
+end
+
+def non_alpha_chars?(name)
+  name.chars.each do |char|
+    return true unless alphabet?(char)
+  end
+  false
+end
+
+def invalid_name?(name)
+  name.empty? || /^ +$/.match(name) || non_alpha_chars?(name)
+end
+
+def retrieve_name
   loop do
-    prompt("Enter the first number:")
-    number1 = Kernel.gets().chomp()
+    name = Kernel.gets().chomp()
 
-    break if valid_number?(number_1)
+    return name unless invalid_name?(name)
+    prompt("Make sure to enter a valid name!")
+  end
+end
+
+def retrieve_number(num)
+  loop do
+    prompt("Enter the first number:") if num == 1
+    prompt("Enter the second number:") if num == 2
+    number = Kernel.gets().chomp()
+
+    return number if number?(number)
     prompt("ERROR!! That's not a valid integer!")
   end
+end
 
-  number2 = ''
-  loop do
-    prompt("Enter the second number:")
-    number2 = Kernel.gets().chomp()
-
-    break if valid_number?(number_2)
-    prompt("ERROR!! That's not a valid number!")
-  end
-
-  operator_prompt = <<~MSG
-    Enter the Operation you want to be perform:
-    1) Add
-    2) Subtract
-    3) Multiply
-    4) Divide
-  MSG
-
-  prompt(operator_prompt)
-
-  operation = ''
+def retrieve_operator
   loop do
     operation = Kernel.gets().chomp()
 
-    break if %w(1 2 3 4).include?(operation)
+    return operation if %w(1 2 3 4).include?(operation)
     prompt("Must Enter 1,2,3 or 4!")
   end
+end
 
-  prompt("#{operation_to_message(operation)} the two numbers...")
+def calculate_result(number1, number2, operation)
+  case operation
+  when '1'
+    number1.to_f() + number2.to_f()
+  when '2'
+    number1.to_f() - number2.to_f()
+  when '3'
+    number1.to_f() * number2.to_f()
+  when '4'
+    number1.to_f() / number2.to_f()
+  end
+end
 
-  result = case operation
-           when '1'
-             number_1.to_i() + number_2.to_i()
-           when '2'
-             number_1.to_i() - number_2.to_i()
-           when '3'
-             number_1.to_i() * number_2.to_i()
-           when '4'
-             number_1.to_f() / number_2.to_f()
-           end
+def valid_answer?(ans)
+  %w(y yes n no).include?(ans)
+end
+
+def retrieve_play_again
+  prompt("Do you want to do another calculation? Enter y/yes or n/no")
+  loop do
+    answer = gets.chomp.downcase
+
+    return answer if valid_answer?(answer)
+    prompt("Invalid Answer! Enter y/yes or n/no only")
+  end
+end
+
+def again?(answer)
+  %w(y yes).include?(answer)
+end
+
+def greet_user
+  prompt("Welcome to the Calculator! Enter your name:")
+
+  name = retrieve_name()
+
+  prompt("Hello #{name}!")
+end
+
+greet_user
+
+loop do # main loop
+  number1 = retrieve_number(1)
+
+  number2 = retrieve_number(2)
+
+  prompt(OPERATOR_PROMPT)
+
+  operation = retrieve_operator
+
+  prompt("#{op_to_msg(operation)} the two numbers...")
+
+  result = calculate_result(number1, number2, operation)
 
   prompt("The result is #{result}")
 
-  prompt("Do you want to calculate again? (Y to caluculate again?")
-  answer = Kernel.gets().chomp()
+  answer = retrieve_play_again
 
-  break unless answer.downcase.start_with?('y')
+  break unless again?(answer)
 end
 
 prompt('Thank you for using the calculator! Goodbye../\\..')
