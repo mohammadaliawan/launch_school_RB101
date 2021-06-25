@@ -1,1 +1,0 @@
-Kernel.puts("Hello World!")
