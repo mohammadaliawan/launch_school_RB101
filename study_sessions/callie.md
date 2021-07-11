@@ -10,7 +10,7 @@
 
 - Understanding the Problem
   - Goal: understand what you're being asked to do
-  - Establish to rules/define the boundaries of the problem
+  - Establish the rules/define the boundaries of the problem
   - What are the explicit and implicit requirements?
   - Ask clarifying questions (& check test cases)
 
