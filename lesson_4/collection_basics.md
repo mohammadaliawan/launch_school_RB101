@@ -55,7 +55,7 @@ str.slice(4,5) -> "grass"
 
 #### What is the Structure of Arrays:
 
-Arrays are: are lists of elements/objects that are ordered by an integer based index.
+Arrays are: lists of elements/objects that are ordered by an integer based index.
 
 - lists of objects
 - ordered by
