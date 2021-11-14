@@ -1,71 +1,79 @@
 =begin
-
-Write a method that takes one argument, a positive integer, and returns a list of the digits in the number.
-
-Examples:
+Write a method that takes one argument, a positive integer, and
+returns a list of the digits in the number.
 
 puts digit_list(12345) == [1, 2, 3, 4, 5]     # => true
 puts digit_list(7) == [7]                     # => true
 puts digit_list(375290) == [3, 7, 5, 2, 9, 0] # => true
 puts digit_list(444) == [4, 4, 4]             # => true
 
+** Problem Requirements **
 
-## PEDAC
+Input: positive integer
+return: array of digits in the number
 
-### U:
-- input: positive integer
-- output: list of digits in the number
+**Restate**
+- define a method
+- takes one argument
+- argument is a positive integer
+- returns an array of digits in the given number
 
-#### Explicit:
-- write a method
-- takes one argument , + integer
-- return a list of digits in the number
+**Rules / Boundaries (Check test cases)**
 
-#### Implicit:
-- the elements of the arrray will be integers not strings
-- Return the list as an array
-- if onlt one digit return that digit in an array
-- the digits should be in the same order as they appear in the original number
-- if digits are repeated, they should appear in the list the same number of times in the same order
+**Explicit**
+- define a method
+- takes one argument
+- argument is a positive integer
+- returns an array of digits in the given number
 
-### DS:
+**Implicit**
+- array should contain integers
+- if its a single digit number then return the a single element array with that number
 
-input: integer(+)
-output: array of integers
+** Terms **
+list == array
 
-### Algo:
+**Questions**
+- input integer will be a base 10 number
+-
 
-- given a positive integer
-- convert the integer to a string
-- split the string into a list of characters
-- transform the list of characters into a list of digits(integers)
+** Data Structures**
+
+- input:positive integer
+- Output: array of integers
+- Intermediate: string
+- Storage:
+
+
+**Algorithm**
+12345 -> "12345" -> ['1', '2', '3', '4', '5'] -> transform array of strings to an array of integers
+
+- given a positive base 10 integer
+- convert the integer to an array of string digits
+- transform array of strings to an array of integers
+- return the array
+
+** Implementation details **
+
+
 =end
 
-# def digit_list(int)
-#   string_of_digits = int.to_s
-
-#   list_of_characters = string_of_digits.split("")
-
-#   list_of_characters.map { |char| char.to_i}
-
-#   # int.to_s.split("").map {|char| char.to_i} one liner
-# end
-
-def digit_list(int)
-  digits = []
-
-  loop do
-    int, rem = int.divmod(10)
-    digits.prepend(rem)
-
-    break if int == 0
-  end
-  digits
+def digit_list(num)
+  num.to_s.chars.map(&:to_i)
 end
 
+# def digit_list(num)
+#   digits = []
 
-p digit_list(12345) == [1, 2, 3, 4, 5]     # => true
-p digit_list(7) == [7]                     # => true
-p digit_list(375290) == [3, 7, 5, 2, 9, 0] # => true
-p digit_list(444) == [4, 4, 4]             # => true
+#   while num > 0
+#     num, rem = num.divmod(10)
+#     digits.prepend(rem)
+#   end
 
+#   digits
+# end
+
+puts digit_list(12345) == [1, 2, 3, 4, 5]     # => true
+puts digit_list(7) == [7]                     # => true
+puts digit_list(375290) == [3, 7, 5, 2, 9, 0] # => true
+puts digit_list(444) == [4, 4, 4]             # => true

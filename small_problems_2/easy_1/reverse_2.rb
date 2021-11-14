@@ -10,49 +10,73 @@ puts reverse_words('Professional')          # => lanoisseforP
 puts reverse_words('Walk around the block') # => Walk dnuora the kcolb
 puts reverse_words('Launch School')         # => hcnuaL loohcS
 
-## PEDAC
+=begin
 
-### U
-- write a method that has
-- input: a string containing one or more words
-- output: a string, words with 5 or more chars reveresed "whole" => "elohw"
-- String will only have letters and spaces. no numeric or special chars
-- include space only when more than one word inthe string
+** Problem Requirements **
 
-#### Implicit:
-- a word is a sub string delimited by spaces
-- if no spaces, then consider it to be one word
-- the order of the words should be the same as in the input
-- return a new string, dont mutate (assumption)
-- spaces dont count as chars in a word
+Input: a string with one or more words
+return: a string
 
-### DS:
+**Rules / Boundaries (Check test cases)**
 
-input: string
-output: string
+**Explicit**
+- define a method
+- takes one argu
+- argu is a string with one or more words
+- returns a new string with words that have length >= 5 reversed
+- string will have only letters and spaces
+- include spaces only if more than one word in the given string
 
-### Algo
+**Implicit**
 
-- Given a string containing one or more substrings delimited by spaces
-- make a list of the substrings in the string
-- For each substring in the list with five or more chars
-  - reverse the substring
-- Combine the list into a string with sub strings seperated by a space
-  - if only one word present no spaces
+** Terms **
+- words are substrings of a string delimited by spaces
+
+**Questions**
+- return a new string
+- dont mutate the given string
+- single space between the words
+- single space in the output string
+- no emtpy strings
+
+** Data Structures**
+
+- input: string
+- Output: string
+- Intermediate: array of strings
+- Storage:
+
+
+**Algorithm**
+- given a string of one or more words
+- create a new empty array to store the final words
+- For each word in the string
+  - if length of the word is greater than or equal to 5
+    - reverse the chars in the word and append the reversed word in the new array
+  - otherwirse
+    - append the word as it is in the new array
+- Join back the new array to a string with a single space as a sep
+
+** Implementation details **
+
+Subprocess = reverse the chars in the word
+use string#reverse method
+
+
 
 =end
 
-def reverse_words (words)
-  words_list = words.split(" ")
-
-  words_list.each do |word|
-    word.reverse! if word.length >= 5
-  end
-
-  words_list.join(" ")
+def reverse_words(words)
+  words.split.map do |word|
+    if word.size >= 5
+      word.reverse
+    else
+      word
+    end
+  end.join(" ")
 end
 
 
-p reverse_words('Professional')          # => lanoisseforP
-p reverse_words('Walk around the block') # => Walk dnuora the kcolb
-p reverse_words('Launch School')         # => hcnuaL loohcS
+puts reverse_words('Professional')          # => lanoisseforP
+puts reverse_words('Walk around the block') # => Walk dnuora the kcolb
+puts reverse_words('Launch School')         # => hcnuaL loohcS

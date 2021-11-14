@@ -1,11 +1,8 @@
 =begin
+Write a method that takes one integer argument, which may be positive, negative, or zero.
+This method returns true if the number's absolute value is odd.
+You may assume that the argument is a valid integer value.
 
-Write a method that takes one integer argument, which may be positive, negative, or zero. This method returns true
-if the number's absolute value is odd. You may assume that the argument is a valid integer value.
-
-Examples:
-
-Copy Code
 puts is_odd?(2)    # => false
 puts is_odd?(5)    # => true
 puts is_odd?(-17)  # => true
@@ -13,54 +10,74 @@ puts is_odd?(-8)   # => false
 puts is_odd?(0)    # => false
 puts is_odd?(7)    # => true
 
-Keep in mind that you're not allowed to use #odd? or #even? in your solution.
+Keep in mind that you're not allowed to use #odd? or #even? in your solution
 
-PEDAC
+** Problem Requirements **
 
-U:
-input: an integer
-output: a boolean
+Input: integer, positive, negative, zero
+return: boolean
 
-Explicit:
-- Write a method
+**Restate**
+- define a method
 - takes one integer argument
-- integer may be +, - or 0
-- Returns a boolean
-- true if the integer's absolute value is odd
-  - an integer is odd if the remainder of int/2 == 0 (integer % 2)
-- Assume the argument is a valid integer --> no integer validation
+- + - or 0
+- return a boolean
+- true if the absolute value of the given integer is odd
+- false if the absolute value if even
 
-Implicit:
+**Rules / Boundaries (Check test cases)**
 
-- 0 is considered even
+**Explicit**
+- define a method
+- takes one integer argument
+- + - or 0
+- return a boolean
+- true if the absolute value of the given integer is odd
+- false if the absolute value if even
+- cant use even? or odd?
 
-Ds:
-input: integer
-output: boolean
+**Implicit**
+- return false for 0
 
-Algo:
+** Terms **
+- absolute value : multiply the given number by -1 if number is negative
+- odd: the number is not divisble by 2 so the remainder != 0
 
-- given an integer
-- if the remainder of the division operation is not zero
-- then the integer is odd
-- otherwise it is even
+**Questions**
+
+
+** Data Structures**
+
+- input: integer
+- Output:boolean
+- Intermediate:
+- Storage:
+
+
+**Algorithm**
+- Given a +, - or 0 integer
+- if num is less than zero
+  - multiply the number by -1
+- if the remainder of num divided by 2 is not zero return true
+- otherwise, return false
+
+
+** Implementation details **
+- given num
+- if num < 0
+  num *= -1
+- if num % 2 != 0
+    return true
+  else
+    return false
+  end
 
 =end
 
-def is_odd?(int)
-  unless (int % 2 == 0)
-    true
-  else
-    false
-  end
-end
+def is_odd?(num)
+  num *= -1 if num < 0
 
-def is_odd?(int)
-  int.remainder(2) != 0
-end
-
-def is_odd?(int)
-  int % 2 != 0
+  num.remainder(2) != 0
 end
 
 puts is_odd?(2)    # => false
