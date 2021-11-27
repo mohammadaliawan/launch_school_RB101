@@ -1,10 +1,8 @@
 =begin
 
 **Problem Requirements**
-- Input:
-- Output/return:
 
-**Rules / Boundaries (Check test cases)**
+**Rules / Requirement/ Boundaries (Check test cases)**
 
 **Explicit**
 -
@@ -17,6 +15,9 @@
 
 **Questions**
 -
+
+- Input:
+- Output/return:
 
 **Data Structures**
 - input:
