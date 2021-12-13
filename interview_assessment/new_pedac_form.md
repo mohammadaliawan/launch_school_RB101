@@ -1,23 +1,34 @@
 =begin
 
-**Problem Requirements**
+------ PED:- 0 MIN to 12 MIN --------------
 
-**Rules / Requirement/ Boundaries (Check test cases)**
-
-**Explicit**
+**The Problem -**
 -
 
-**Implicit**
+
+**Input** :
+**Output** :
+
+**Explicit Requirements/Rules/Boundaries**
 -
+
+
+**Implicit Requirements/Rules/Boundaries**
+-
+
 
 **Special Terms**
 -
 
+
+**Examples/Test Cases**
+- input:
+- Output:
+
+
 **Questions**
 -
 
-- Input:
-- Output/return:
 
 **Data Structures**
 - input:
@@ -25,10 +36,17 @@
 - Intermediate:
 - Storage:
 
+--------------- A:- 18 MIN to 20 MIN------------
+
 **Algorithm**
 -
+
 
 **Implementation details**
 -
 
+
+-------------- C: 20 MIN to 25 MIN ------------------------
+
+**CodeWithIntent****
 =end

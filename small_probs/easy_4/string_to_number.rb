@@ -62,13 +62,13 @@ def string_to_integer(string_of_digits)
   
   array_of_integers = string_digits_array.map{|string_digit| digits_hash[string_digit]}
 
-  sum = 0
+  # sum = 0
 
-  array_of_integers.reverse.each_with_index do |num, index|
-   sum += num * (10**index)
-  end
+  # array_of_integers.reverse.each_with_index do |num, index|
+  #  sum += num * (10**index)
+  # end
 
-  sum
+  # sum
   
 end
 
@@ -77,4 +77,4 @@ p string_to_integer('570') == 570
 p string_to_integer('5') == 5
 p string_to_integer('') == 0
 p string_to_integer('0') == 0
-p string_to_integer('000570') == 570
+p string_to_integer('000570') #== 570

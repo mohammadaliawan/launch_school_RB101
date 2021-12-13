@@ -155,3 +155,22 @@ def start_end_special_char(word)
   end
 end
   
+
+p scramble_words('i') == 'i'
+p scramble_words('') == ''
+p scramble_words('me') == 'me'
+p scramble_words('you') == 'you'
+p scramle_words('y-u') == 'y-u'
+
+
+p scramble_words('professionals') == 'paefilnoorsss'
+p scramble_words('dcba.') == 'dbca.'
+
+
+p scramble_words('card-carrying') == 'caac-dinrrryg'
+p scramble_words("shan't") == "sahn't"
+p scramle_words('y-ou') == 'y-ou'
+
+p scramble_words('-dcba') == '-dbca'
+
+p scramble_words("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth.") == "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth."
