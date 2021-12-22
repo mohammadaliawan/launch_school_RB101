@@ -1,10 +1,20 @@
 # Interview Assessment - My Study Guide
 
+
+## Read through the Problem statement a few times until you understand the main gist of the problem.
+  - while doing this copy/paste parts of the problem into different parts
+
+## Notedown the required input and output.
+
+## Notedown the Explicit requirements
+
+## Notedown the Implicit
+
 ## Areas of focus - Things to get good at!
 
 - Fluency in basic Ruby 
-- Ability to problem solve
-- Ability to Decompose the problem description into technical concepts
+- Ability to problem solve - PEDAC
+- Ability to Decompose the problem description into technical concepts - PEDAC
 - Ability to speak clearly and with precision while coding
 
 ## Concepts and Skills:
