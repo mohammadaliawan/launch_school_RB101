@@ -2,9 +2,6 @@
 
 ------ PED:- 0 MIN to 12 MIN --------------
 
-**The Problem -**
--
-
 
 **Input** :
 **Output** :
@@ -36,7 +33,7 @@
 - Intermediate:
 - Storage:
 
---------------- A:- 18 MIN to 20 MIN------------
+--------------- A:- 12 MIN to 20 MIN------------
 
 **Algorithm**
 -
