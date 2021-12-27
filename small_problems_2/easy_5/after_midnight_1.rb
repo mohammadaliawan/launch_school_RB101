@@ -79,15 +79,17 @@ time_of_day(-4231) == "01:29"
 
 
 **Data Structures**
-- input:
-- Output:
+- input: integer
+- Output: string
 - Intermediate:
 - Storage:
 
 --------------- A:- 18 MIN to 20 MIN------------
 
 **Algorithm**
--
+- normalize minutes to 0 thru 1439
+- hrs = mins_after_midnight / 60, mins = mins_after_midnight%60
+- format the result "hh:mm"
 
 
 **Implementation details**
