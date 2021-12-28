@@ -78,20 +78,20 @@ those spaces also needs to be replaced with a single space
 
 VALID_CHARS = ('a'..'z').to_a
 
-# def cleanup(sentence)
-#   chars_list = sentence.chars
+def cleanup(sentence)
+  chars_list = sentence.chars
 
-#   result = []
+  result = []
 
-#   chars_list.each_with_index do |char, index|
-#     if VALID_CHARS.include?(char)
-#       result << char
-#     else
-#       result << " " unless result[index - 1] == " "
-#     end
-#   end
-#   result.join
-# end
+  chars_list.each_with_index do |char, index|
+    if VALID_CHARS.include?(char)
+      result << char
+    else
+      result << " " unless result.last == " "
+    end
+  end
+  result.join
+end
 
 def cleanup(text)
   text.gsub(/[^a-z]/, ' ').squeeze(" ")
