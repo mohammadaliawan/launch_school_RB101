@@ -1,6 +1,7 @@
 =begin
 Given a non-empty string check if it can be constructed by taking a substring of it
-and appending multiple copies of the substring togather. You may assume that the given string
+and appending multiple copies of the substring togather.
+You may assume that the given string
 contains lowercase english letters only.
 
 Example-1
