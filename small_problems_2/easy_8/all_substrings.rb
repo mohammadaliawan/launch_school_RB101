@@ -1,6 +1,6 @@
 =begin
 
-Write a method that returns a list of all substrings of a string.
+rite a method that returns a list of all substrings of a string.
 The returned list should be ordered by where in the string the substring begins.
 
 This means that all substrings that start at position 0 should come first,
