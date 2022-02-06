@@ -22,10 +22,9 @@ deconstruct the problem into its requirements and define the rules and boundarie
 - write a method
 - that takes a string as argument
 - return a list of leading substrings of the given string
-- substrings: a subsequence of consecutive chars in the given string
+- substrings: a sequence of consecutive chars in the given string
 - leading: start at the beginning of the original string
 - list should be ordered in ascending order of substring length
--
 
 **Implicit Requirements/Rules/Boundaries**
 - single char string, return the char string as the only substring in array
@@ -90,7 +89,6 @@ def leading_substrings(str)
   leading_substrings
 end
 
-CocoMingleTex662323
 
 p leading_substrings('abc') == ['a', 'ab', 'abc']
 p leading_substrings('a') == ['a']

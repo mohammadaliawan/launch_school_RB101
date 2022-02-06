@@ -1,6 +1,6 @@
 =begin
 
-rite a method that returns a list of all substrings of a string.
+Write a method that returns a list of all substrings of a string.
 The returned list should be ordered by where in the string the substring begins.
 
 This means that all substrings that start at position 0 should come first,
@@ -13,7 +13,6 @@ You may (and should) use the leading_substrings method you wrote in the previous
 
 Examples:
 
-Copy Code
 substrings('abcde') == [
   'a', 'ab', 'abc', 'abcd', 'abcde',
   'b', 'bc', 'bcd', 'bcde',
@@ -29,7 +28,7 @@ deconstruct the problem into its requirements and define the rules and boundarie
 ------ PED:- 0 MIN to 12 MIN --------------
 
 
-**Input** :stirng
+**Input** :string
 **Output** : array of all substrings
 
 **Explicit Requirements/Rules/Boundaries**
@@ -80,12 +79,11 @@ for end index iterate from current starting index to size - 1
 
 **Algorithm**
 - Given a string
-- init an array [] substrings
-- For starting_idnex from 0 to size - 1
-  - For end index from starting_index to siZe - 1
-    - get the current substring with starting_index,  end_indx
-- return the substrings
-
+- init a new empty array # substrings
+- For starting index from 0 to size - 1
+  - find all the leading substrings with the current starting index
+  - save them in the substrings array
+- return the substrings array
 
 **Implementation details**
 -
@@ -97,21 +95,27 @@ for end index iterate from current starting index to size - 1
 =end
 
 
-def substrings(str)
-  subs = []
+def leading_substrings(str)
+  leading_substrings = []
 
-  0.upto(str.size - 1) do |start_index|
-    start_index.upto(str.size - 1) do |end_index|
-      subs << str.slice(start_index..end_index)
-    end
+  1.upto(str.size) do |length|
+    leading_substrings << str.slice(0, length)
   end
-  subs
+
+  leading_substrings
 end
 
-p substrings('abcde') #== [
-#   'a', 'ab', 'abc', 'abcd', 'abcde',
-#   'b', 'bc', 'bcd', 'bcde',
-#   'c', 'cd', 'cde',
-#   'd', 'de',
-#   'e'
-# ]
+def substrings(str)
+  (0...str.size).each_with_object([]) do |start_index, substrings|
+    current_substring = str[start_index..-1]
+    substrings.concat(leading_substrings(current_substring))
+  end
+end
+
+p substrings('abcde') == [
+  'a', 'ab', 'abc', 'abcd', 'abcde',
+  'b', 'bc', 'bcd', 'bcde',
+  'c', 'cd', 'cde',
+  'd', 'de',
+  'e'
+]

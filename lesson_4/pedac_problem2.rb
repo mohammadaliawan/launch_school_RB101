@@ -37,6 +37,8 @@ What is a substring? a substring is a contiguous sequence of characters within a
 What is a palindrome?
 Will the input always be a string
 
+"abcde"
+
 DS/ALGO:
 
 input: a string
@@ -149,27 +151,12 @@ RETURN result
 
 # length = min_chars ---> string.size - starting_index
 
-# def substrings(string, min_chars)
-  
-#   substrings_ary = []
-  
-#   0.upto(string.size - min_chars) do |starting_index|
-#     min_chars.upto(string.size - starting_index) do |length|
-#       substrings_ary << string[starting_index, length]
-#     end
-#   end
-  
-#   substrings_ary
-# end
-
-# p substrings("hello", 1)
-
 def substrings(string, min_chars)
   
   substrings_ary = []
   
   0.upto(string.size - min_chars) do |starting_index|
-    (starting_index + min_chars - 1).upto(string.size - starting_index) do |length|
+    min_chars.upto(string.size - starting_index) do |length|
       substrings_ary << string[starting_index, length]
     end
   end
@@ -178,3 +165,18 @@ def substrings(string, min_chars)
 end
 
 p substrings("hello", 1)
+
+# def substrings(string, min_chars)
+  
+#   substrings_ary = []
+  
+#   0.upto(string.size - min_chars) do |starting_index|
+#     (starting_index + min_chars - 1).upto(string.size - starting_index) do |length|
+#       substrings_ary << string[starting_index, length]
+#     end
+#   end
+  
+#   substrings_ary
+# end
+
+# p substrings("hello", 1)

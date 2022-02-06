@@ -66,7 +66,7 @@ involved in going from the input to the output
 - Given an array of nums
 - find all the leading subsequences of the array
   - init an empty array lead_subs = []
-    For end index from 1 to size - 1
+    For end index from 0 to size - 1
     - save array[0, end_indx] lead_subs
 - find the sum of all the leading subsequences
 
@@ -87,8 +87,8 @@ involved in going from the input to the output
 def find_leading_subs(ary)
   lead_subs = []
 
-  0.upto(ary.size - 1) do |end_idx|
-    lead_subs << ary[0..end_idx]
+  1.upto(ary.size) do |length|
+    lead_subs << ary[0, length]
   end
   lead_subs
 end
@@ -96,10 +96,12 @@ end
 def sum_of_sums(ary)
   lead_subs = find_leading_subs(ary)
 
-  lead_subs.flatten.sum
+  lead_subs.each_with_object([]) do |current_sub, sums|
+   sums.push(current_sub.sum)
+  end.sum
 end
 
-p sum_of_sums([3, 5, 2]) == (3) + (3 + 5) + (3 + 5 + 2) # -> (21)
+p sum_of_sums([3, 5, 2]) #== (3) + (3 + 5) + (3 + 5 + 2) # -> (21)
 p sum_of_sums([1, 5, 7, 3]) == (1) + (1 + 5) + (1 + 5 + 7) + (1 + 5 + 7 + 3) # -> (36)
 p sum_of_sums([4]) == 4
 p sum_of_sums([1, 2, 3, 4, 5]) == 35
