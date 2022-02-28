@@ -1,17 +1,17 @@
 #code_wars Problems.md
 
 
-1.Count letters in string
-2.Find all pairs
-3.Return substring instance count
-4.Alphabet symmetry
-5.Longest vowel chain
-6.Non-even substrings
-7.Substring fun
-8.Repeated Substring
-9.Typoglycemia Generator
-10.Most frequently used words in a text]
-11.Extract the domain name from a URL
+<!-- 1.Count letters in string -->
+<!-- 2.Find all pairs -->
+<!-- 3.Return substring instance count -->
+<!-- 4.Alphabet symmetry -->
+<!-- 5.Longest vowel chain -->
+<!-- 6.Non-even substrings -->
+<!-- 7.Substring fun -->
+<!-- 8.Repeated Substring -->
+    9.Typoglycemia Generator
+    10.Most frequently used words in a text]
+    11.Extract the domain name from a URL
 12. Detect Pangram
 13. Kebabize
 14. Dubstep
