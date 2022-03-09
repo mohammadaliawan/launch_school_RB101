@@ -1,7 +1,6 @@
 =begin
 
-
------- PED:- 0 MIN to 12 MIN --------------
+------ PE:- 0 MIN to 5 MIN --------------
 
 
 **Input** :
@@ -27,23 +26,24 @@
 -
 
 
+--------------- DA:- 6 MIN to 15 MIN------------
+
 **Data Structures**
 - input:
 - Output:
 - Intermediate:
 - Storage:
 
---------------- A:- 12 MIN to 20 MIN------------
 
 **High Level Algorithm**
 -
 
 
-**Implementation details**\
+**Implementation details**
 -
 
 
--------------- C: 20 MIN to 25 MIN ------------------------
+-------------- C: 15 MIN to 20 MIN ------------------------
 
-**CodeWithIntent****
+**CodeWithIntent**
 =end

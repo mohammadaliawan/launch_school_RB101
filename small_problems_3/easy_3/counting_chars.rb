@@ -10,56 +10,81 @@ output:
 
 There are 4 characters in "walk".
 
-**Problem Requirements**
+=begin
 
-**Rules / Requirement/ Boundaries (Check test cases)**
 
-**Explicit**
-- ask the user for an input
-- input can be a word or multiple words
-- output the number of chars in the input
-- spaces dont count as chars
+------ PED:- 0 MIN to 12 MIN --------------
 
-**Implicit**
-- special chars count
-- output should be in the form of There are #{num_of_chars} characters in "#{input_string}".
+
+**Input** : string
+**Output** : string
+
+**Explicit Requirements/Rules/Boundaries**
+- get a string of words from the user
+- count the number of chars in the input string
+- spaces should not be counted
+- output a string "There are 4 characters in "input string"
+
+
+**Implicit Requirements/Rules/Boundaries**
+-
+
 
 **Special Terms**
-- word or multiple words means a string containing 0 or more spaces. words are delimited by spaces
+-
+
+
+**Examples/Test Cases**
+
+
 
 **Questions**
-- input is empty string
+-
 
-- Input: string
-- Output/return: string
 
 **Data Structures**
 - input: string
 - Output: string
-- Intermediate: array
+- Intermediate:
 - Storage:
 
-**Algorithm**
-- retrieve a word or multiple words from the user
-- split the input string into an array of words
-- For each word in the array of words
-  - count the num of chars
-  - add to the total number of chars
-- Output the total number of chars in the input
+--------------- A:- 12 MIN to 20 MIN------------
 
-**Implementation details**
-- init total = 0
-- Iterate through the array of words
-  - count the number of chars in current word
-  - total += count_current_word
+**High Level Algorithm**
+- Retrieve words or multiple words from the user
+- Count the number of character in given string except spaces
+  - remove spaces from the given string
+  - find the number of chars in the remaining string
+- Output the number of chars in input string
 
+
+**Implementation details**\
+Subprocess- Retrieve words or multiple words from the user
+
+GET "Please enter a word or multiple words:"
+SET input_string to input string
+
+ Count the number of character in given string except spaces
+  - remove spaces from the given string
+    - gsub(" ", "")
+  - find the number of chars in the remaining string
+
+-------------- C: 20 MIN to 25 MIN ------------------------
+
+**CodeWithIntent****
 =end
 
-print "Please write word or multiple words: "
-str_input = gets.chomp
+def retrieve_words
+  puts "Enter words or multiple words:"
+  gets.chomp
+end
 
-words_ary = str_input.split
+def number_of_characters
+ input_words = retrieve_words
 
-count_chars = words_ary.reduce(0){|total_chars, word| total_chars + word.size}
+ num_of_chars = input_words.count("^ ")
 
-puts "There are #{count_chars} characters in \"#{str_input}\"."
+ puts "There are #{num_of_chars} characters in \"#{input_words}\"."
+end
+
+number_of_characters

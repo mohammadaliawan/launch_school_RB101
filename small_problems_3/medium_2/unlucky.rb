@@ -24,12 +24,6 @@
 
 
 
-
-
-
-
-
-
 # Hide Solution & Discussion
   # Solution
   # Copy Code

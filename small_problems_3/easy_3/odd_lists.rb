@@ -12,27 +12,39 @@ oddities(['abc', 'def']) == ['abc']
 oddities([123]) == [123]
 oddities([]) == []
 
-**Problem Requirements**
 
-**Rules / Requirement/ Boundaries (Check test cases)**
+------ PED:- 0 MIN to 12 MIN --------------
 
-**Explicit**
-- define a method
-- takes an array as an argu
-- returns an array containing every other element of the argu array
-= returned elements should be the 1st, 3rd, 5th..
 
-**Implicit**
-- elements returned will have even indices
+**Input** : array
+**Output** : array
+
+**Explicit Requirements/Rules/Boundaries**
+- write a method
+- takes an array as argument
+- returns an array with every other element of the given array
+- every other means: 1st, 3rd, or 5th positions
+
+**Implicit Requirements/Rules/Boundaries**
+- every other means: 1st, 3rd 
+  - at indices 0,2,4,6... even indices
+
 
 **Special Terms**
 -
 
+
+**Examples/Test Cases**
+oddities([2, 3, 4, 5, 6]) == [2, 4, 6]
+
+select elements at indices 0, 2, 4
+
+
+
+
 **Questions**
 -
 
-- Input: array
-- return: array of even index elements
 
 **Data Structures**
 - input: array
@@ -40,28 +52,17 @@ oddities([]) == []
 - Intermediate:
 - Storage:
 
-**Algorithm**
-- given an array
-- create an empty selected_elements list to store the selected elements
-- For each element of the given array
-  - select those elements whose index is even
+--------------- A:- 12 MIN to 20 MIN------------
 
-**Implementation details**
-- init empty array selected_ele
-- Iterate thru the given array with index #each_with_index
-  - if the index is even # even?
-      - store the current element in the selected_ele array # array <<
-- return the selected_eles array
+**High Level Algorithm**
+- 
+
+
+**Implementation details**\
+-
+
+
+-------------- C: 20 MIN to 25 MIN ------------------------
+
+**CodeWithIntent****
 =end
-
-def oddities(ary)
-  ary.select.with_index do |ele, index|
-    index.odd?
-  end
-end
-
-p oddities([2, 3, 4, 5, 6]) #== [2, 4, 6]
-p oddities([1, 2, 3, 4, 5, 6]) #== [1, 3, 5]
-p oddities(['abc', 'def']) == ['abc']
-p oddities([123]) == [123]
-p oddities([]) == []
